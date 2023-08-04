@@ -4,18 +4,6 @@
 ** Common LMS interface routines 
 *******************************************************************************/
 
-/*******************************************************************************
-**
-** By David Hodges
-** Outermost Software, LLC
-** Brattleboro, VT
- **  Rev 5/15/2018 Revised from OutermostLMSV3.js for ThinClient project, using new WebAPI interface
- ** Rev 6/11/2018 Adding error log for debugging, plus debug window
- * Bug Fix 6/19/2020 Somehow an old bug resurfaced in GetValue and SetValue, where the return value wasn't being returned to the caller
-*******************************************************************************/
-//debug info
-//import "json";
-
 var blnDebug = true;
 var aryDebug = new Array();
 var strDebug = "";
