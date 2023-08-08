@@ -8,18 +8,13 @@
       },
       "use64Bit": true
     },
-    "OpenSourceSCORMLMS": {
+    "Kestrel": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:5000"
-    },
-    "IIS": {
-      "commandName": "IIS",
-      "launchBrowser": true,
-      "ancmHostingModel": "InProcess"
     }
   },
   "iisSettings": {
