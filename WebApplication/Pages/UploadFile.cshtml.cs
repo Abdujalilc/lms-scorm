@@ -90,7 +90,7 @@ namespace OpenSourceSCORMLMS.Pages
            
             if (isSavedSuccessfully)
             {
-                string href = $"/{ConfigurationHelper.CourseFolder}/{sFileNameWithoutExtension}/{sPathToIndex}";
+                string href = "/{"+ConfigurationHelper.CourseFolder+"/"+sFileNameWithoutExtension+"/"+sPathToIndex+"";
                 _logger.LogInformation("SCORM package saved.");
                 return new JsonResult(new { Message = fname, Url = href });
             }
