@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Certificate</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	//debugger;
+	var theCourse = parent.courseTitle;
+
+	var theName = parent.studentName;
+	theName = theName.replace(/\+/g, " ");
+	theName = theName.replace(/%22/g, '"');
+	theName = theName.replace(/%26/g, "&");
+	theName = theName.replace(/%27/g, "'");
+	theName = theName.replace(/%28/g, "(");
+	theName = theName.replace(/%29/g, ")");
+	theName = theName.replace(/%2C/g, ",");
+	theName = theName.replace(/%2F/g, "/");
+	theName = theName.replace(/%3A/g, ":");
+	theName = theName.replace(/%3B/g, ";");
+	theName = theName.replace(/%5C/g, "\\");
+	theName = theName.replace(/%7C/g, "|");
+
+	var now = new Date();
+	var certMonthNum = now.getMonth()
+	var monthNames = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+	var certYear = now.getYear();
+	if (certYear < 1900)
+		certYear = certYear + 1900;
+	var certDate = monthNames[certMonthNum] + ' ' + now.getDate() + ', ' + certYear;
+
+	function printWindow() {
+		showButtons(false);
+		alert ("Use the printer dialog box to select your printer and print the certificate.\nLandscape mode is recommended for this certificate.")
+		window.print();
+		showButtons(true);
+	}
+
+	function showButtons(show) {
+		var vis = show ? "visible" : "hidden";
+		if (navigator.appName == "Microsoft Internet Explorer") {
+			eval("document.all.printButton.style.visibility='" + vis + "'");
+			eval("document.all.closeButton.style.visibility='" + vis + "'");
+		}
+		else {
+			eval("document.getElementById('printButton').style.visibility='" + vis + "'");
+			eval("document.getElementById('closeButton').style.visibility='" + vis + "'");
+		}
+	}
+</script>
+
+<style type="text/css">
+	.customStyle_Large { font-family : "Times New Roman", Times, serif; font-size: 30px; font-weight: bold; font-style: italic;}
+	.customStyle_Medium { font-family : "Times New Roman", Times, serif; font-size: 20px;}
+</style>
+
+<DIV ID="printButton" STYLE="position: absolute; left: 227px; top: 0px; width: 200px; height: 28px; z-index: 2; visibility:visible">
+	<FORM ACTION="javascript:printWindow();" METHOD="link">
+		<INPUT ALIGN="CENTER" TYPE="submit" VALUE="Print this certificate">
+	</FORM>
+</DIV>
+
+<DIV ID="closeButton" STYLE="position: absolute; left: 487px; top: 0px; width: 200px; height: 28px; z-index: 2; visibility:visible">
+	<FORM ACTION="javascript:top.close();" METHOD="link">
+		<INPUT ALIGN="CENTER" TYPE="submit" VALUE="Close this window">
+	</FORM>
+</DIV>
+
+<DIV ID="Cert" STYLE="position: absolute; left: 40px; top: 25px; width: 800px; height: 607px; z-index: 1"><IMG SRC="Certificate.jpg" WIDTH="800" HEIGHT="607" ALT="" BORDER="0"></DIV>
+<DIV ID="Pres" STYLE="position: absolute; left: 45px; top: 240px; width: 800px; height: 28px; z-index: 1" CLASS="customStyle_Medium" ALIGN="CENTER"><font size="5">For:<br></font><font size="6"><b><i><SCRIPT>document.write(theCourse);</SCRIPT></b></i></font></DIV>
+<DIV ID="Pres" STYLE="position: absolute; left: 45px; top: 390px; width: 800px; height: 28px; z-index: 1" CLASS="customStyle_Medium" ALIGN="CENTER">Presented to:</DIV>
+<DIV ID="Name" STYLE="position: absolute; left: 45px; top: 420px; width: 800px; height: 42px; z-index: 1" CLASS="customStyle_Large" ALIGN="CENTER"><SCRIPT>document.write(theName);</SCRIPT></DIV>
+<DIV ID="Date" STYLE="position: absolute; left: 45px; top: 500px; width: 800px; height: 28px; z-index: 1" CLASS="customStyle_Medium" ALIGN="CENTER"><SCRIPT>document.write(certDate);</SCRIPT></DIV>
+
+</BODY>
+</HTML>

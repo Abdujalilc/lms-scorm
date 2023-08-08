@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Resources for Recruiting People with Disabilities</title>
+	<script type="text/javascript" src="jQuery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="javascript/SCORMFunctions.js"></script>
+	<script type="text/javascript" src="javascript/functions.js"></script>
+	<script type="text/javascript">
+		pageNext = "";
+		pageBack = "";
+		if (checkPagesViewed(pageName))
+			nextActive = true;
+		else
+			nextActive = false;
+		backActive = true;
+
+		completionArray = [false, false, false, false, false, false, false];
+		$(document).ready(function () {
+			DoSCORMBookmark();
+			pageLoaded();
+			//addToPagesViewed(pageName);
+		});
+	</script>
+	<style type="text/css">
+		li {
+			margin-bottom: 8px;
+		}
+	</style>
+</head>
+
+<body>
+	<a name="top" id="top"></a>
+	<a class="skipnav" href="#content">Click here to skip navigation</a>
+	<div id="container_outside">
+		<div id="header">
+			<div id="progress">
+				<div id="progressText"></div>
+				<div id="progressBar"></div>
+				<script type="text/javascript">writeProgress();</script>
+			</div>
+			<!-- <a class="btnHome" title="Home" href="javascript:goHome();"></a> -->
+			<a href="javascript:void(0);" title="Index" class="btnIndex" id="idx"></a>
+			<!-- <a class="btnResources" title="Resources" href="javascript:goResources();"></a> -->
+			<a href="javascript:void(0);" title="Glossary &amp; Resources" class="btnGlossary" id="gls"></a>
+			<a href="javascript:void(0);" title="Help" class="btnHelp" id="hlp"></a>
+			<a class="btnExit" title="Exit" href="javascript:goExit();"></a>
+		</div>
+		<!-- end header -->
+		<div id="container_content">
+			<a name="content" id="content"></a>
+			<!-- =================== BEGIN CONTENT =================== -->
+			<div class="photo">
+				<img src="images/16.jpg" alt="Logos for Fed Hire Vets and Workforce Recruitment Program(WRP)" name="img1" width="225" height="251" id="img1" style="margin-left:20px; border:none;" />			</div>
+			<div class="textHeader">Resources for Recruiting People with Disabilities</div>
+			<p>
+				There are a number of resources currently in existence that can help agencies make progress toward increasing employment of people with disabilities. Agencies should make full use of these resources to tap into the great potential of people with disabilities. Some of these Federal and community programs include: 
+			</p>
+			<ul>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup14(1);">Feds Hire Vets</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup14(2);">Workforce Recruitment Program</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup14(3);">Vocational Rehabilitation</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup14(4);">The OPM Shared List of People with Disabilities</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup14(5);">Ticket-To-Work Employment Networks</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup14(6);">American Job Centers</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup14(7);">Local Service Organizations and Other Resources</a></li>
+			</ul>
+
+			<script type="text/javascript">
+				function showPopup14(num) {
+					var popupW = 600; //default box width
+					var popupH = 400; //default box height
+					var popupHeader = "";
+					var popupText = "";
+					if (num == 1) {
+						popupHeader = "<strong>Feds Hire Vets<\/strong>";
+						popupText += "<a href='http://www.fedshirevets.gov/About/index.aspx' target='_blank'>http://www.fedshirevets.gov/About/index.aspx<\/a><br><br>This Web site is a direct result of E.O. 13518 on Employment of Veterans in the Federal Government. In partnership with the Departments of Defense, Labor, Veterans Affairs, and Homeland Security, and other Federal agencies, our vision is that this Web site will be the preeminent source for Federal employment information for our veterans, transitioning service members, their families, Federal HR professionals, and hiring managers. Our goal is to provide consistent and accurate information and useful training and other resources in a way that will inform both the applicant and the hiring agency.<br><br>";
+						completionArray[num - 1] = true;
+					}
+					if (num == 2) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "<strong>Workforce Recruitment Program<\/strong>";
+						popupText += "<a href='https://dol.gov/odep/wrp/federalEmployers.htm' target='_blank'>https://dol.gov/odep/wrp/federalEmployers.htm<\/a><br><br>The Workforce Recruitment Program (WRP) is a recruitment and referral program that connects Federal sector employers nationwide with highly motivated college students and recent graduates with disabilities who are eager to prove their abilities in the workplace through summer or permanent jobs. The U.S. Department of Labor's Office of Disability Employment Policy (ODEP) and the U.S. Department of Defense's Office of Diversity Management &amp; Equal Opportunity (ODMEO) manage the program, which continues to be successful with the participation of many other Federal agencies and sub-agencies.<br><br>";
+						completionArray[num - 1] = true;
+					}
+
+					if (num == 3) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "<strong>Vocational Rehabilitation<\/strong>";
+						popupText += "<a href='http://askjan.org/cgi-win/TypeQuery.exe?902' target='_blank'>http://askjan.org/cgi-win/TypeQuery.exe?902<\/a><br><br>By contacting your local vocational rehabilitation office, you will tap into a wealth of resources related to employment options for people with disabilities. Vocational rehabilitation (VR), a state-supported division of services, assists individuals with disabilities who are pursuing meaningful careers.<br><br>";
+						completionArray[num - 1] = true;
+					}
+
+					if (num == 4) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "<strong>The OPM Shared List of People with Disabilities<\/strong>";
+						popupText += "<a href='http://www.opm.gov/policy-data-oversight/disability-employment/recruiting/#url=OPM-CHCO-Shared-List-of-People-with-Disabilities' target='_blank'>http://www.opm.gov/policy-data-oversight/disability-employment/recruiting/#url=OPM-CHCO-Shared-List-of-People-with-Disabilities<\/a><br><br>The OPM Chief Human Capital Officers' Shared List of People with Disabilities is a database of candidates with disabilities who are eligible to apply for employment through the Schedule A hiring authority. Enhance recruitment efforts by using this free service, available to all Federal agencies, in order to recruit people with disabilities from a wide variety of professional fields.<br><br>";
+						completionArray[num - 1] = true;
+					}
+
+					if (num == 5) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "<strong>Ticket-To-Work Employment Networks<\/strong>";
+						popupText += "<a href='http://www.socialsecurity.gov/work/index.html' target='_blank'>http://www.socialsecurity.gov/work/index.html<\/a><br><br>The Ticket-to-Work Program provides people receiving Social Security benefits (beneficiaries) choices for receiving employment services. Under this program, the Social Security Administration (SSA) issues tickets to eligible beneficiaries who may assign those tickets to an Employment Network (EN) of their choice to obtain employment services, vocational rehabilitation services, or other support services necessary to achieve a vocational (work) goal.<br><br>";
+						completionArray[num - 1] = true;
+					}
+
+					if (num == 6) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "<strong>American Job Centers<\/strong>";
+						popupText += "American Job Centers were established under the Federal Workforce Investment Act to provide a full range of job-seeker assistance under one roof. American Job Centers are located at a variety of locations in each state, with more than 3,200 centers across the country. The American Job Center system is required to be \"universally accessible\"; any member of the general public (including those with disabilities) can access the system and use the basic, or \"core,\" services. To locate an American Job Center, visit <a href='http://www.careeronestop.org/ReEmployment/JobSearchHelp/ChangeCareers/one-stop-career-centers.aspx' target='_blank'>http://www.careeronestop.org/ReEmployment/JobSearchHelp/<br />ChangeCareers/one-stop-career-centers.aspx<\/a>.<br><br>";
+						completionArray[num - 1] = true;
+					}
+
+					if (num == 7) {
+						popupW = 400;
+						popupH = 300;
+						popupHeader = "Local Service Organizations and Other Resources";
+						popupText += "For other local service organizations and other resources, visit <a href='http://www.opm.gov/policy-data-oversight/disability-employment/recruiting/' target='_blank'>http://www.opm.gov/policy-data-oversight/disability-employment/recruiting/<\/a><br><br>";
+						completionArray[num - 1] = true;
+					}
+					popUp(popupHeader, popupText, popupW, popupH);
+					//if (completionArray.indexOf(false) == -1) {
+					if ($.inArray(false, completionArray) == -1) {
+						addToPagesViewed(pageName);
+						activateNext();
+					}
+				}
+			</script>
+
+			<div id="prompt" style="margin-top:50px">Select the links. Then, select Next to continue.</div>
+
+			<!-- =================== END CONTENT =================== -->
+
+		</div>
+		<!-- end container_content -->
+		<div id="footer">
+			<a href="javascript:goExit();" title="Save &amp; Exit" class="btnSaveExit" id="btnSaveExit"></a>
+			<a href="javascript:goBack();" title="Back" class="btnBack" id="btnBack" accesskey="b"></a>
+			<a href="javascript:goNext();" title="Next" class="btnNext" id="btnNext" accesskey="n"></a>
+		</div>
+		<!-- end footer -->
+		<span id="debug"></span>
+	</div>
+	<!-- end container_outside -->
+</body>
+</html>

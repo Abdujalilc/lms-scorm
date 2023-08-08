@@ -1,0 +1,370 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset http://www.w3.org/TR/html4/frameset.dtd">
+<!--- file date: 04/13/15 --->
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<SCRIPT TYPE="text/javascript" SRC="APIWrapper.js"></SCRIPT>
+
+<SCRIPT TYPE="text/javascript">
+var lmsconnection = false; //boolean variable to check for LMS connection
+var currentBookmark = "";
+var pagesViewed = "|";
+var ReturnToMenu = 0;
+var sentcount=0;
+var unloadcount=0;
+
+var isReady=false;
+var ContentDomain;
+var sflag=false;
+
+function pageOnLoad() {
+	//Initialize LMS connection
+	var state;
+	if (!lmsconnection) {
+		//alert("Initializing LMS communications");
+		var result = doLMSInitialize();
+		lmsconnection = result;
+		//alert("doLMSInitialize returns " + lmsconnection);
+	}
+	//alert(lmsconnection);
+	if (lmsconnection) {
+		state=doLMSGetValue("cmi.core.lesson_status");
+		if(state=="not attempted" || state==""){
+			doLMSSetValue("cmi.core.lesson_status","incomplete");
+		}
+		doWriteURL();
+	}
+
+}
+
+function doCommUp(message){
+	var win=document.getElementById("courseframe").contentWindow;
+	win.postMessage(message,ContentDomain);
+}
+
+
+function ParseCommand(command){
+	var cm;
+	var ta;
+	var dename;
+	var devalue;
+	ta=command.split("|");
+
+	cm=ta[0];
+	//alert(cm);
+	switch(cm){
+		case "READY":
+			if(!isReady){
+				//alert("Content server's pseudolms reports that it is ready for SCORM data.");
+				isReady=true;
+			}
+			doCommUp("SENDING DATA");
+			if(sentcount<1){
+							writeLocalDataModel();
+							sentcount=1;
+			}
+		break;
+
+		case "doLMSInitialize":
+			return;
+		break;
+
+		case "doLMSFinish":
+			//alert("LMS Actual - Firing Finish");
+			//rv=doLMSFinish();
+			window.close();
+		break;
+
+		case "doLMSGetValue":
+			//alert("LMS Actual - Getting value");
+			return;
+		break;
+
+		case "doLMSSetValue":
+			dename=ta[1];
+			devalue=ta[2];
+			//alert("LMS Actual - Setting value: " + dename + "," + defuddleValue(devalue));
+			rv=doLMSSetValue(dename,defuddleValue(devalue));
+			rv=doLMSCommit();
+		break;
+
+		case "doLMSCommit":
+			//alert("LMS Actual - Firing Commit");
+			rv=doLMSCommit();
+		break;
+
+		default:
+			alert("Unrecognized command: " + cm);
+		break;
+	}
+}
+
+function fn(e) {
+	var k;
+	var orig;
+
+  	orig="" + e.origin;
+  	k=ContentDomain;
+    orig=orig.toLowerCase();
+    //alert("LMS stub course is receiving communications from the content server pseudolms.");
+
+    k=k.toLowerCase();
+
+    if ( orig != k ) {
+    	alert("LMS stub course denies communications from the content server pseudolms because the reported content domain: " + ContentDomain + " and the requesting communication domain: " + e.origin + " are different.");
+      return;
+    }
+    //alert("LMS stub course passes communication on to its command parser." + e.data);
+  //alert("data: " + e.data);
+  ParseCommand(e.data);
+}
+
+function doWriteURL(){
+	var s;
+	var v;
+
+	if(typeof(localStorage) == "undefined" || !window.postMessage){
+		alert("Your browser is too old to use this communication method");
+	}
+	v="";
+	v+=window.location;
+	//alert(v);
+	if(v.indexOf("https://")>-1){
+		s="https://KnowledgeRepository.golearnportal.org/SCORMXD/ODIRoadmap_HTML5/pseudolmsiframe_module.htm" + "?tburl=" + escape(window.location);
+		ContentDomain="https://KnowledgeRepository.golearnportal.org";
+		sflag=true;
+	}
+	else{
+		s="http://KnowledgeRepository.golearnportal.org/SCORMXD/ODIRoadmap_HTML5/pseudolmsiframe_module.htm" + "?tburl=" + escape(window.location);
+		ContentDomain="http://KnowledgeRepository.golearnportal.org";
+		sflag=false;
+	}
+	//alert(s);
+	document.getElementById('courseframe').src=s;
+}
+
+function fuddleValue(v){
+	var s;
+	s=v;
+	while(s.indexOf("|")>-1){
+		s=s.replace("|","~~PIPE~~");
+	}
+	return s;
+}
+
+function defuddleValue(v){
+	var s;
+	s=v;
+	while(s.indexOf("~~PIPE~~")>-1){
+		s=s.replace("~~PIPE~~","|");
+	}
+	return s;
+}
+
+function writeLocalDataModel(){
+	var v;
+	var s;
+
+	var i;
+	var j,k;
+	var j2,k2;
+
+
+
+	v=doLMSGetValue("cmi.core.student_id");
+	s="cmi.core.student_id" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.student_name");
+	s="cmi.core.student_name" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.lesson_location");
+	s="cmi.core.lesson_location" + "|" + fuddleValue(v);
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.credit");
+	s="cmi.core.credit" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.lesson_status");
+	s="cmi.core.lesson_status" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.suspend_data");
+	s="cmi.suspend_data" + "|" + fuddleValue(v);
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.entry");
+	s="cmi.core.entry" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.score._children");
+	s="cmi.core.score._children" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.score.raw");
+	s="cmi.core.score.raw" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.score.max");
+	s="cmi.core.score.max" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.score.min");
+	s="cmi.core.score.min" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.total_time");
+	s="cmi.core.total_time" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.core.lesson_mode");
+	s="cmi.core.lesson_mode" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.launch_data");
+	s="cmi.launch_data" + "|" + v;
+	doCommUp(s);
+
+	//Disabled - Plateau does not support
+	/*v=doLMSGetValue("cmi.comments");
+	s="cmi.comments" + "|" + fuddleValue(v);
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.comments_from_lms");
+	s="cmi.comments_from_lms" + "|" + fuddleValue(v);
+	doCommUp(s);*/
+
+
+	v=doLMSGetValue("cmi.objectives._count");
+	s="cmi.objectives._count" + "|" + v;
+	doCommUp(s);
+
+	k=v;
+	j=0;
+	while(j<k){
+		v=doLMSGetValue("cmi.objectives." + j + ".id");
+		s="cmi.objectives." + j + ".id" + "|" + v;
+		doCommUp(s);
+
+		v=doLMSGetValue("cmi.objecitves." + j + ".score._children");
+		s="cmi.objecitves." + j + ".score._children" + "|" + v;
+		doCommUp(s);
+
+		v=doLMSGetValue("cmi.objecitves." + j + ".score.raw");
+		s="cmi.objecitves." + j + ".score.raw" + "|" + v;
+		doCommUp(s);
+
+		v=doLMSGetValue("cmi.objecitves." + j + ".score.max");
+		s="cmi.objecitves." + j + ".score.max" + "|" + v;
+		doCommUp(s);
+
+		v=doLMSGetValue("cmi.objecitves." + j + ".score.min");
+		s="cmi.objecitves." + j + ".score.min" + "|" + v;
+		doCommUp(s);
+
+		v=doLMSGetValue("cmi.objecitves." + j + ".status");
+		s="cmi.objecitves." + j + ".status" + "|" + v;
+		doCommUp(s);
+
+		j++;
+	}
+
+	//Disabled - Plateau does not support
+	/*v=doLMSGetValue("cmi.student_data.mastery_score");
+	s="cmi.student_data.mastery_score" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.student_data.max_time_allowed");
+	s="cmi.student_data.max_time_allowed" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.student_data.time_limit_action");
+	s="cmi.student_data.time_limit_action" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.student_preference.audio");
+	s="cmi.student_preference.audio" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.student_preference.language");
+	s="cmi.student_preference.language" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.student_preference.speed");
+	s="cmi.student_preference.speed" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.student_preference.text");
+	s="cmi.student_preference.text" + "|" + v;
+	doCommUp(s);
+
+	v=doLMSGetValue("cmi.interactions._count");
+	s="cmi.interactions._count" + "|" + v;
+	doCommUp(s);
+
+	k=v;
+	j=0;
+	while(j<k){
+
+		v=doLMSGetValue("cmi.interactions." + j + ".objectives._count");
+		s="cmi.interactions." + j + ".objectives._count" + "|" + v;
+		doCommUp(s);
+
+
+
+		v=doLMSGetValue("cmi.interactions." + j + ".correct_responses._count");
+		s="cmi.interactions." + j + ".correct_responses._count" + "|" + v;
+		doCommUp(s);
+		k2=v;
+		j=0;
+
+
+		j++;
+	}*/
+
+	s="BUILDDONE";
+	doCommUp(s);
+}
+
+
+if(window.postMessage) {
+    if(window.addEventListener) {
+        window.addEventListener("message", fn, false);
+    } else if(window.attachEvent) {
+        window.attachEvent("onmessage", fn);
+    }
+
+    // [TR] Added for illustration
+    //document.write("Message listener registered successfully");
+} else {
+    // ... workaround for when postMessage is unavailable ...
+    // [TR] Added for illustration
+    document.write("postMessage is not supported, using workaround");
+}
+
+function handleUnload(n){
+
+		if(unloadcount==0){unloadcount++;doLMSFinish();lmsconnecton=false;}
+
+
+}
+
+
+
+
+</SCRIPT>
+</HEAD>
+
+<FRAMESET ROWS="100%" FRAMESPACING="0" onLoad="pageOnLoad()" onUnload="handleUnload(1)">
+
+	<FRAME ID="courseframe" BAPPLICATION="yes" SRC="loading-in-progress.htm" SCROLLING="yes"></FRAME>
+
+</FRAMESET>
+
+<BODY onKeyDown="keyDown()" onKeyUp="keyUp()" onUnload="handleUnload(1)">
+
+</BODY>
+</HTML>

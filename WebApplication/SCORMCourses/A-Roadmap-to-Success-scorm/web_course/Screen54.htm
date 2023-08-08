@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Resources</title>
+	<script type="text/javascript" src="jQuery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="javascript/SCORMFunctions.js"></script>
+	<script type="text/javascript" src="javascript/functions.js"></script>
+	<script type="text/javascript">
+		pageNext = "";
+		pageBack = "";
+		nextActive = true;
+		backActive = true;
+
+		$(document).ready(function () {
+			DoSCORMBookmark();
+			pageLoaded();
+			addToPagesViewed(pageName);
+		});
+	</script>
+	<style type="text/css">
+</style>
+</head>
+
+<body>
+	<a name="top" id="top"></a>
+	<a class="skipnav" href="#content">Click here to skip navigation</a>
+	<div id="container_outside">
+		<div id="header">
+			<div id="progress">
+				<div id="progressText"></div>
+				<div id="progressBar"></div>
+				<script type="text/javascript">writeProgress();</script>
+			</div>
+			<!-- <a class="btnHome" title="Home" href="javascript:goHome();"></a> -->
+			<a href="javascript:void(0);" title="Index" class="btnIndex" id="idx"></a>
+			<!-- <a class="btnResources" title="Resources" href="javascript:goResources();"></a> -->
+			<a href="javascript:void(0);" title="Glossary &amp; Resources" class="btnGlossary" id="gls"></a>
+			<a href="javascript:void(0);" title="Help" class="btnHelp" id="hlp"></a>
+			<a class="btnExit" title="Exit" href="javascript:goExit();"></a>
+		</div>
+		<!-- end header -->
+		<div id="container_content">
+			<a name="content" id="content"></a>
+			<!-- =================== BEGIN CONTENT =================== -->
+
+			<div class="photo">
+				<img id="img1" src="images/43.jpg" width="249" height="249" alt="Three silhouettes of three people with different disabilities. The US Capitol dome is in the background." style="border: none;" />
+			</div>
+			<div class="textHeader">Resources</div>
+			<p>
+				The Federal Government has a number of excellent resources to support the employment of people with disabilities, many of them referenced in this training. 
+The <a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup54(1);">disability employment section of OPM's Web site</a> provides links to these resources, along with additional information for 
+employers, employees, and job seekers with disabilities.
+			</p>
+			<p>On the OPM Web site, you can find:</p>
+			<ul>
+				<li>Information on the Federal hiring process and special hiring authorities for people with disabilities and veterans
+				</li>
+				<li>Links to information and resources from various agencies, including the Department of Labor's Office of Disability Employment Policy (DOL-ODEP) and the Equal Employment Opportunity Commission (EEOC)
+				</li>
+				<li>Information and resources on reasonable accommodations, including links to the Computer/Electronic Accommodations Program (CAP) and  the Job Accommodation Network (JAN)
+				</li>
+				<li>Recruiting tips and resources, including links to the Selective Placement Program Coordinator (SPPC) Directory, the OPM Shared List, the Workforce Recruitment Program (WRP), the Student Pathways program, State vocational rehabilitation (VR) agencies, Ticket-To-Work Employment Networks, and other local service organizations
+				</li>
+				<li>Inclusion and retention tips, including links to guidance on reemployment from the Department of Labor's Office of Workers' Compensation Programs (OWCP)
+				</li>
+				<li>Information about relevant laws, Executive orders, and other initiatives for people with disabilities
+				</li>
+			</ul>
+
+			<div id="prompt">
+				Select the link for more information. Select the Glossary &amp; Resources button to view the URLs and PDFs that accompany this training.  Then, select Next to continue.
+			</div>
+
+			<script type="text/javascript">
+				function showPopup54(num) {
+					var popupW = 550; //default box width
+					var popupH = 350; //default box height
+					var popupHeader = "";
+					var popupText = "";
+					if (num == 1) {
+						popupHeader = "Disability Employment Section of OPM's Web Site";
+						popupText += "Select the following link for more information: <a href=\"http://www.opm.gov/policy-data-oversight/disability-employment\" target=\"_blank\">http://www.opm.gov/policy-data-oversight/disability-employment<\/a>.<br><br>";
+					}
+					popUp(popupHeader, popupText, popupW, popupH);
+					activateNext();
+				}
+			</script>
+
+			<!-- =================== END CONTENT =================== -->
+
+		</div>
+		<!-- end container_content -->
+		<div id="footer">
+			<a href="javascript:goExit();" title="Save &amp; Exit" class="btnSaveExit" id="btnSaveExit"></a>
+			<a href="javascript:goBack();" title="Back" class="btnBack" id="btnBack" accesskey="b"></a>
+			<a href="javascript:goNext();" title="Next" class="btnNext" id="btnNext" accesskey="n"></a>
+		</div>
+		<!-- end footer -->
+		<span id="debug"></span>
+	</div>
+	<!-- end container_outside -->
+</body>
+</html>

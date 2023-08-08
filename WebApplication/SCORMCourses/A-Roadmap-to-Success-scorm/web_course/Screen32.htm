@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Hiring Authorities</title>
+	<script type="text/javascript" src="jQuery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="javascript/SCORMFunctions.js"></script>
+	<script type="text/javascript" src="javascript/functions.js"></script>
+	<script type="text/javascript">
+		pageNext = "";
+		pageBack = "";
+		if (checkPagesViewed(pageName))
+            nextActive = true;
+        else
+            nextActive = false;
+		backActive = true;
+
+		completionArray = [false,false,false,false];
+		$(document).ready(function () {
+			DoSCORMBookmark();
+			pageLoaded();
+			//addToPagesViewed(pageName);
+		});
+	</script>
+	<style type="text/css">
+</style>
+</head>
+
+<body>
+	<a name="top" id="top"></a>
+	<a class="skipnav" href="#content">Click here to skip navigation</a>
+	<div id="container_outside">
+		<div id="header">
+			<div id="progress">
+				<div id="progressText"></div>
+				<div id="progressBar"></div>
+				<script type="text/javascript">writeProgress();</script>
+			</div>
+			<!-- <a class="btnHome" title="Home" href="javascript:goHome();"></a> -->
+			<a href="javascript:void(0);" title="Index" class="btnIndex" id="idx"></a>
+			<!-- <a class="btnResources" title="Resources" href="javascript:goResources();"></a> -->
+			<a href="javascript:void(0);" title="Glossary &amp; Resources" class="btnGlossary" id="gls"></a>
+			<a href="javascript:void(0);" title="Help" class="btnHelp" id="hlp"></a>
+			<a class="btnExit" title="Exit" href="javascript:goExit();"></a>
+		</div>
+		<!-- end header -->
+		<div id="container_content">
+			<a name="content" id="content"></a>
+			<!-- =================== BEGIN CONTENT =================== -->
+			
+			<div class="photo">
+				<img id="img1" src="images/32.jpg" width="249" height="300" alt="Man in wheelchair raising his hand" style="border:none;" />
+			</div>
+			<div class="textHeader">Hiring Authorities</div>
+			<p>
+				In addition to hiring employees with disabilities competitively, excepted service hiring authorities can be utilized to bring people with disabilities into Federal employment noncompetitively. You are encouraged to become familiar with and utilize these authorities to the greatest extent possible, and consistent with applicable law. They help to remove barriers to employment. 
+			</p>
+			
+			<p>
+				The excepted service Schedule A Appointment of Persons with Intellectual Disabilities, Severe Physical Disabilities, and Psychiatric Disabilities (5 CFR 213.3102(u)) provides authority for hiring applicants with a variety of disabilities. In order to be eligible for employment through the Schedule A hiring authority, <a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup32(1);">proof of disability</a> documentation is required. Some of its benefits include:
+			</p>
+			<ul>
+				<li>Time-in-grade restrictions do not apply to promotions in the excepted service.</li>
+				<li>For positions under Schedule A, agencies can determine what qualities they are searching for in a candidate, providing for an extra measure of flexibility.</li>
+				<li>Schedule A appointment can be used for:
+				<ul>
+					<li>Permanent appointments</li>
+					<li>Time-limited appointments</li>
+					<li>Temporary appointments</li>
+				</ul>
+				</li>
+			</ul>
+			<p style="margin-bottom:10px">Additionally, veterans may be hired under the following three authorities:</p>
+			<ul style="margin-top:0">
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup32(2);">Veterans&rsquo; Recruitment Appointment (VRA)</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup32(3);">30% or More Disabled Veterans</a></li>
+				<li><a href="javascript:void(0);" onclick="this.style.color='purple'; showPopup32(4);">Veterans Employment Opportunities Act of 1998 (VEOA)</a></li>
+			</ul>
+
+			<script type="text/javascript">
+				function showPopup32(num) {
+					var popupW = 600; //default box width
+					var popupH = 400; //default box height
+					var popupHeader = "";
+					var popupText = "";
+					if (num == 1) {
+						popupHeader = "Proof of Disability";
+						popupText += "In order to be eligible for employment through the Schedule A noncompetitive process, documentation of the disability is required. Such documentation is used to verify that the individual being hired is indeed a person with an intellectual disability, severe physical disability, or psychiatric disability. This documentation must be provided to the hiring agency before an individual can be hired. Documentation of eligibility for employment under Schedule A can be obtained from a licensed medical professional (e.g., a physician or other medical professional certified by a State, the District of Columbia, or a U.S. territory to practice medicine); a licensed vocational rehabilitation specialist (i.e., State or private); or any Federal agency, State agency, or agency of the District of Columbia or a U.S. territory that issues or provides disability benefits. This proof of disability often comes in the form of a Schedule A letter.<br><br>";
+						completionArray[num-1] = true;
+					}
+					if (num == 2) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "Veterans' Recruitment Appointment (VRA)";
+						popupText += "In order to promote the policy of \"the maximum of employment and job advancement opportunities within the Federal Government for disabled veterans and certain veterans of the Vietnam era and of the post-Vietnam era who are qualified for such employment and advancement,\" the Vietnam Era Veterans' Readjustment Assistance Act of 1974, as amended (<a href='http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=browse_usc&docid=Cite:+38USC421238' target='_blank'>U.S.C. 4212<\/a>), placed into law the provisions of the Executive order authorizing the noncompetitive appointment of Vietnam-era veterans under <a href='http://www.fedshirevets.gov/JOB/SHAV/#vra' target='_blank'>Veterans' Recruitment Appointment (VRA)<\/a>. The Act also ensures all veterans are considered for employment under merit system rules and requires a separate affirmative action plan for the hiring, placement, and advancement of disabled veterans. Please note, however, that this law does not provide any preferences to disabled veterans or to veterans of the Vietnam era.<br><br>";
+						completionArray[num-1] = true;
+					}
+
+					if (num == 3) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "30% or More Disabled Veterans";
+						popupText += "Title 5 U.S.C. Sections <a  href='http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=browse_usc&docid=Cite:+5USC3312' target='_blank'>3312<\/a> and <a href='http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=browse_usc&docid=Cite:+5USC3318' target='blank'>3318<\/a> require any disqualification, non-selection, or passing over of a veterans' preference-eligible applicant for medical reasons be approved by the U.S. Office of Personnel Management before the position can be filled. This includes an agency medical disqualification of a <strong>30 percent or more disabled veteran<\/strong> for assignment to another position in a reduction in force. A non-preference eligible who is disqualified for medical reasons also has the right to a higher level review of the determination in the agency as stated in OPM regulation Code of Federal Regulations (CFR) <a href='http://www.ecfr.gov/cgi-bin/retrieveECFR?gp=&SID=b84565f0a32d94273cb6d3769d3d80f5&r=PART&n=5y1.0.1.2.50' target='_blank'>Title 5, Section 339.306<\/a>.<br><br>";
+						completionArray[num-1] = true;
+					}
+					if (num == 4) {
+						popupW = 600;
+						popupH = 400;
+						popupHeader = "<a href='http://www.fedshirevets.gov/hire/hm/shav/index.aspx' target='_blank'> Veterans Employment Opportunities Act of 1998 (VEOA)<\/a>";
+						popupText += "The Veterans Employment Opportunity Act of 1998 (VEOA), as amended, is a competitive service appointing authority that can only be used when filling permanent, competitive service positions. It cannot be used to fill excepted service positions. It allows veterans to apply to announcements that are only open to so-called \"status\" candidates, which means \"current competitive service employees.\" For more information, go to <a href='http://www.fedshirevets.gov/job/shav/#veoa' target='_blank'> http://www.fedshirevets.gov/job/shav/#veoa<\/a>.<br><br>";
+						completionArray[num-1] = true;
+					}
+
+					popUp(popupHeader, popupText, popupW, popupH);
+					//if (completionArray.indexOf(false) == -1) {
+					if ($.inArray(false, completionArray) == -1) {
+						addToPagesViewed(pageName);
+						activateNext();
+					}
+				}
+			</script>
+
+			<div id="prompt">
+				Select the links for more information. Then, select Next to continue.
+			</div>
+
+			<!-- =================== END CONTENT =================== -->
+
+		</div>
+		<!-- end container_content -->
+		<div id="footer">
+			<a href="javascript:goExit();" title="Save &amp; Exit" class="btnSaveExit" id="btnSaveExit"></a>
+			<a href="javascript:goBack();" title="Back" class="btnBack" id="btnBack" accesskey="b"></a>
+			<a href="javascript:goNext();" title="Next" class="btnNext" id="btnNext" accesskey="n"></a>
+		</div>
+		<!-- end footer -->
+		<span id="debug"></span>
+	</div>
+	<!-- end container_outside -->
+</body>
+</html>

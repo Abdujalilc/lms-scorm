@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Lesson Index</title>
+	<script type="text/javascript" src="javascript/functions.js"></script>
+	<script src="jQuery/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var j = 0;
+        $(document).ready(function () {
+            for (var i = 0; i < 55; i++) {
+                j = i + 1;
+                if (opener.pageViewedList.indexOf("|" + opener.pageNameArray[i] + "|") != -1) {
+				//if (parent.pagesViewed.indexOf("|" + parent.pagesArray[i] + "|") != -1) {
+                    //$("#indx" + j).attr({ "onclick": "document.location.href='" + parent.pagesArray[i] + ".htm';window.close();" });
+					$("#indx" + j).attr({ "onclick": "opener.location.href='" + opener.pageNameArray[i] + ".htm';window.close();" });
+                    $("#indx" + j).css({ "color": "#0066CC", "text-decoration": "underline" });
+                } else {
+                    $("#indx" + j).attr("disabled", "disabled").css({ "color": "#000", "text-decoration": "none" });
+                }
+            }
+        });
+    </script>
+	<style type="text/css">
+</style>
+</head>
+
+<body>
+	<a name="top" id="top"></a>
+	<div id="container_outside">
+		<div id="header">
+			<!--<div id="progress">
+				<div id="progressText"></div>
+				<div id="progressBar"></div>
+				<script type="text/javascript">writeProgress();</script>
+			</div>-->
+			<!--<a class="btnHome" title="Home" href="javascript:goHome();"></a>>
+			<a href="javascript:void(0);" title="Index" class="btnIndex" id="idx"></a>-->
+			<!-- <a class="btnResources" title="Resources" href="javascript:goResources();"></a> -->
+			<!--<a href="javascript:void(0);" title="Glossary &amp; Resources" class="btnGlossary" id="gls"></a>
+			<a href="javascript:void(0);" title="Help" class="btnHelp" id="hlp"></a>
+			<a class="btnExit" title="Exit" href="javascript:goExit();"></a>-->
+		</div>
+		<!-- end header -->
+		<div id="container_content">
+			<a name="content" id="content"></a>
+			<!-- =================== BEGIN CONTENT =================== -->
+
+
+			<div class="textHeader">List of Pages</div>
+			<!--<div><script type="text/javascript">document.write(opener.pageViewedList);</script></div>-->
+			<!--<div><script type="text/javascript">document.write(opener.pageNameArray);</script></div>-->
+
+    <ul>
+	<li><a href="javascript:void(0);" onclick="" id="indx1">Welcome</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx2">Navigation</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx3">Welcome to A Roadmap to Success: Hiring, Retaining, and Including People with Disabilities</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx4">The Federal Government: A Model Employer of People with Disabilities</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx5">Course Objectives</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx6">The Model Employer Roadmap</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx7">It Starts with You.</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx8">An Untapped Resource: Our Largest Minority Group</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx9">The Federal Government Disability Employment Initiatives</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx10">Executive Order 13548 and the Americans with Disabilities Act (ADA) Anniversary</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx11">Other Important Initiatives</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx12">Knowledge Check 1 of 2</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx13">Knowledge Check 2 of 2</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx14">Recruit</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx15">Resources for Recruiting People with Disabilities</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx16">Strategies for Recruiting People with Disabilities</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx17">Knowledge Check 1 of 1</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx18">Accommodate</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx19">Benefits of Accommodation</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx20">Welcoming Reasonable Accommodation Requests</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx21">Hiring Regardless of Reasonable Accommodation Needs and Costs</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx22">Categories of Reasonable Accommodations</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx23">Accessibility</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx24">Knowledge Check 1 of 2</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx25">Knowledge Check 2 of 2</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx26">Interview</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx27">Interview Accessibility</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx28">Interview Focus</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx29">Interviewing</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx30">Knowledge Check 1 of 1</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx31">Hire Qualified Candidates</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx32">Hiring People With Disabilities</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx33">Hiring Authorities</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx34">Hiring Made Simple Video</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx35">Knowledge Check 1 of 1</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx36">Include and Retain</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx37">Strategies for Inclusion and Retention</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx38">Strategies for Inclusion and Retention (continued)</a></li>
+    <li><a href="javascript:void(0);" onclick="" id="indx39">Return to Work</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx40">Knowledge Check 1 of 1</a></li>
+	<li><a href="javascript:void(0);" onclick="" id="indx41">Course Review </a></li>
+    </ul>
+
+			<!-- =================== END CONTENT =================== -->
+
+		</div>
+		<!-- end container_content -->
+		<div id="footer">
+			<!--<a id="btnSaveExit" class="btnSaveExit" title="Save &amp; Exit" href="javascript:goExit();"></a>
+			<a id="btnBack" class="btnBack" title="Back" href="javascript:goBack();"></a>
+			<a id="btnNext" class="btnNext" title="Next" href="javascript:goNext();"></a>-->
+			<!--<a id="btnReturnToCourse" class="btnReturnToCourse" title="Return to Course" href="javascript:void(0);" onclick="goBack(); return false"></a>-->
+			<a id="btnReturnToCourse" class="btnReturnToCourse" title="Return to Course" href="javascript:void(0);" onclick="self.close(); return false;"></a>
+		</div>
+		<!-- end footer -->
+		<span id="debug"></span>
+	</div>
+	<!-- end container_outside -->
+</body>
+</html>

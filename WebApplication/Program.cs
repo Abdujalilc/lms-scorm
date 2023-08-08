@@ -19,6 +19,7 @@ namespace OpenSourceSCORMLMS
                  builder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                  builder.AddFile(o => o.RootPath = System.AppContext.BaseDirectory);
              })
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+            .UseKestrel(options => { options.Limits.MaxRequestBodySize = null; });
     }
 }
