@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OpenSourceSCORMLMS.Data.ModelSCORM;
+using System.Linq;
+using System.Reflection.Emit;
 
 namespace OpenSourceSCORMLMS.Data
 {
@@ -24,6 +26,13 @@ namespace OpenSourceSCORMLMS.Data
         public DbSet<SCORM_Course> SCORM_Course { get; set; }
         public DbSet<session> session { get; set; }
         public DbSet<User_Module> User_Module { get; set; }
-    }
-   
+
+        public DbSet<SCORM_Course_fromSP> SCORM_Course_FromSP { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<SCORM_Course_fromSP>().HasNoKey();
+        }
+    }   
+    
 }

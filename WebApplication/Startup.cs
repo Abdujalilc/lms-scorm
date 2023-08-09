@@ -38,13 +38,15 @@ namespace OpenSourceSCORMLMS
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services
-                .AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver()); //prevent JsonResult from camelCasing on its own
+            services.AddMvc().AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.PropertyNamingPolicy = null;
+                o.JsonSerializerOptions.DictionaryKeyPolicy = null;
+            }); //prevent JsonResult from camelCasing on its own
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(WebApplication app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -61,15 +63,12 @@ namespace OpenSourceSCORMLMS
             app.UseAuthentication();
             // the purpose of the HtmlHandler is to make sure that when people are running SCORM courses (i.e. native html files) that they are authenticated
             app.UseHtmlHandler();
-
             app.UseStaticFiles(); // For the wwwroot folder
-
             app.UseCookiePolicy();
-
             app.UseAuthentication();
 
-            app.UseMvc();
-            var httpContextAccessor = app.ApplicationServices.GetRequiredService<IHttpContextAccessor>();
+            //app.UseMvc();
+            var httpContextAccessor = app.Services.GetRequiredService<IHttpContextAccessor>();
             ConfigurationHelper.Initialize(Configuration, httpContextAccessor);
             // we run SCORM courses out of its own folder (NOT wwwroot) so that HtmlHandler can check for authentication before returning any SCORM content
             app.UseStaticFiles(new StaticFileOptions
@@ -77,7 +76,11 @@ namespace OpenSourceSCORMLMS
                 FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, ConfigurationHelper.CourseFolder)),
                 RequestPath = "/SCORMCourses"
             });
-
+            app.UseRouting();
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.Run();
         }
     }
 }

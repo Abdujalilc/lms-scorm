@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Models;
 using OpenSourceSCORMLMS.Data.ModelSCORM;
@@ -6,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace OpenSourceSCORMLMS.Helpers
@@ -625,7 +626,8 @@ namespace OpenSourceSCORMLMS.Helpers
                 using (var context = ConnectionHelper.getContext())
                 {
                     string query = $"dbo.Sel_SessionID {iSCORM_Course_ID},  null, '{UserId}', {sessionid}, {iCore_id}, '{dtStartTime}'";
-                    var session = context.session.FromSql(query).FirstOrDefault();
+                    var fs = FormattableStringFactory.Create(query);
+                    var session = context.session.FromSql(fs).FirstOrDefault();
                     iSessionID = session.id;
                 }
             }
