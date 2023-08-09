@@ -101,7 +101,7 @@ namespace OpenSourceSCORMLMS.Api
                     string total_time = core.total_time;
                     string entry = "";
                     string status = "";
-                    if (exit.ToLower() == "suspend")
+                    if (exit != null && exit.ToLower() == "suspend")
                     {
                         entry = "resume";
                     }

@@ -447,11 +447,11 @@ function WriteToDebug(strInfo) {
     //var parsedJson=JSON.parse(strInfo);
     if (blnDebug) {
 
-        var dtm = new Date();
+        var dtm = new Date().toLocaleTimeString();
         var strLine;
 
-        strLine = `${aryDebug.length} :  - ${strInfo}`;
-        //strLine = `${aryDebug.length} : ${dtm.toString()} - ${strInfo}`;
+        //strLine = `${aryDebug.length} :  - ${strInfo}`;
+        strLine = `${aryDebug.length} : ${dtm.toString()} - ${strInfo}`;
         aryDebug[aryDebug.length] = strLine;
 
         if (winDebug && !winDebug.closed && my_div) {

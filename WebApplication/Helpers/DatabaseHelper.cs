@@ -624,7 +624,8 @@ namespace OpenSourceSCORMLMS.Helpers
             {
                 using (var context = ConnectionHelper.getContext())
                 {
-                    var session = context.session.FromSql($"dbo.Sel_SessionID {iSCORM_Course_ID},  null, {UserId}, {sessionid}, {iCore_id}, {dtStartTime}").FirstOrDefault();
+                    string query = $"dbo.Sel_SessionID {iSCORM_Course_ID},  null, '{UserId}', {sessionid}, {iCore_id}, '{dtStartTime}'";
+                    var session = context.session.FromSql(query).FirstOrDefault();
                     iSessionID = session.id;
                 }
             }
