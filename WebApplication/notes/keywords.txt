@@ -1,0 +1,25 @@
+Learning Record Stores (LRS)
+LMS (Learning Management System)
+SCORM-conformant Learning Management System (LMS)
+"CMI" stands for "computer managed instruction"
+ADL Advanced Distributed Learning
+AICC - Aviation Industry CBT Committee
+HACP HTTP AICC Communication Protocol
+Learning Technology Standards Committee (LTSC)
+Learning Record Store (LRS)
+Package Interchange File (PIF)
+Run-time web services (RTWS)
+Content Package (CP)
+Run-Time Environment (RTE)
+Content Aggregation Model (CAM)
+Information management system (IMS)
+Information management system metadata(IMSMD)
+Advanced Distributed Learning (ADL)
+Advanced Distributed Learning Content Package (ADLCP)
+Information management system Content Package (IMSCP)
+Sharable Courseware Object Reference Model (SCORM)
+Learning Management System (LMS)
+Computer Managed Instruction (CMI)
+instructional systems designer (ISD)
+learning object metadata (LOM)
+
