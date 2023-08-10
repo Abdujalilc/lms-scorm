@@ -470,8 +470,8 @@ function WriteToDebug(strInfo) {
 //public
 function ShowDebugWindow() {
     var renderLog = function () {
-        var i,
-            len = aryDebug.length;
+        var i;
+        var len = aryDebug.length;
         winDebug.document.body.innerHTML = "";
         my_div = winDebug.document.createElement('div');
         my_div.setAttribute("id", "MyDiv");
@@ -506,22 +506,16 @@ function ShowDebugWindow() {
         winDebug.document.close();
         winDebug.focus();
     }
-
     return;
 }
 
 //public
 function DisplayError(strMessage) {
-
     var blnShowDebug;
-
     WriteToDebug("In DisplayError, strMessage=" + strMessage);
-
     blnShowDebug = confirm("An error has occured:\n\n" + strMessage + "\n\nPress 'OK' to view debug information to send to technical support.");
-
     if (blnShowDebug) {
         ShowDebugWindow();
     }
-
 }
 

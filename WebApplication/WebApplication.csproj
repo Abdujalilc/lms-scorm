@@ -38,6 +38,11 @@
 
   <ItemGroup>
     <None Include="wwwroot\blank.html" />
+    <None Include="wwwroot\lib\bootstrap\bootstrap.min.js" />
+    <None Include="wwwroot\lib\jqueryui\jquery-ui.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery.validate.unobtrusive.min.js" />
   </ItemGroup>
 
   <ItemGroup>
