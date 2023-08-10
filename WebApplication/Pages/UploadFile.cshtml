@@ -13,7 +13,7 @@
         border-width: 4;
     }
 </style>
-<script src="/js/dropzone.js"></script>
+<link href="~/js/dropzone/dropzone.min.css" rel="stylesheet" />
 <h1>SCORM Package Upload</h1>
 <div class="row">
     <div class="col-md-9">
@@ -28,39 +28,30 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    Dropzone.autoDiscover = false;
-    Dropzone.options.uploader = {
-        paramName: "file",
-        url: "/UploadFile",
-        maxFilesize: 2000,
-        acceptedFiles: ".zip",
+@section Scripts{
+    <script src="~/js/dropzone/dropzone.min.js"></script>
+    <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+        Dropzone.options.uploader = {
+            paramName: "file",
+            url: "/UploadFile",
+            maxFilesize: 2000,
+            acceptedFiles: ".zip",
 
-        dictInvalidFileType: "Please upload only SCORM packages in .zip format",
-        success: function (file, response) {
-            $(".dz-success-mark svg").css("background", "green");
-            $(".dz-error-mark").css("display", "none");
-            // console.log(file);
+            dictInvalidFileType: "Please upload only SCORM packages in .zip format",
+            success: function (file, response) {
+                $(".dz-success-mark svg").css("background", "green");
+                $(".dz-error-mark").css("display", "none");
+                // console.log(file);
 
-            //alert(response.Message + '  ' + response.Url);
-            window.location.href = response.Url;
-        },
-        error: function (file, response) {
-            $(".dz-error-mark svg").css("background", "red");
-            $(".dz-success-mark").css("display", "none");
-        }
-    };
-    $('#uploader').dropzone();</script>
-
-    @*
-
-    Dropzone.options.uploader = {
-  url: "/file/post",
-  success: function(file, response) {
-    alert(response);
-  }
-};
-    *@
-
-
-
+                //alert(response.Message + '  ' + response.Url);
+                window.location.href = response.Url;
+            },
+            error: function (file, response) {
+                $(".dz-error-mark svg").css("background", "red");
+                $(".dz-success-mark").css("display", "none");
+            }
+        };
+        $('#uploader').dropzone();
+    </script>
+}

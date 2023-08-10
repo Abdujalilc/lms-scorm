@@ -608,7 +608,7 @@ namespace OpenSourceSCORMLMS.Helpers
             {
                 using (var context = ConnectionHelper.getContext())
                 {
-                    var cmi_core = context.cmi_core.FromSql($"dbo.Sel_CoreTrackingID {iSCORM_Course_ID},{UserId} ").FirstOrDefault();
+                    var cmi_core = context.cmi_core.FromSqlInterpolated($"dbo.Sel_CoreTrackingID {iSCORM_Course_ID},{UserId} ").IgnoreQueryFilters().ToList().FirstOrDefault();
                     iCoreID = cmi_core.core_id;
                 }
             }
@@ -627,7 +627,7 @@ namespace OpenSourceSCORMLMS.Helpers
                 {
                     string query = $"dbo.Sel_SessionID {iSCORM_Course_ID},  null, '{UserId}', {sessionid}, {iCore_id}, '{dtStartTime}'";
                     var fs = FormattableStringFactory.Create(query);
-                    var session = context.session.FromSql(fs).FirstOrDefault();
+                    var session = context.session.FromSqlInterpolated(fs).IgnoreQueryFilters().ToList().FirstOrDefault();
                     iSessionID = session.id;
                 }
             }
