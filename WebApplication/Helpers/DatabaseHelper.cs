@@ -607,9 +607,31 @@ namespace OpenSourceSCORMLMS.Helpers
             try
             {
                 using (var context = ConnectionHelper.getContext())
-                {
-                    var cmi_core = context.cmi_core.FromSqlInterpolated($"dbo.Sel_CoreTrackingID {iSCORM_Course_ID},{UserId} ").IgnoreQueryFilters().ToList().FirstOrDefault();
-                    iCoreID = cmi_core.core_id;
+                {                    
+                    cmi_core cmiCore =
+                        (from c in context.cmi_core
+                         where c.student_id == UserId && c.SCORM_course_id == iSCORM_Course_ID
+                         orderby c.core_id descending
+                         select c).FirstOrDefault();
+                    if (cmiCore != null && cmiCore.core_id > 0)
+                    {
+                        iCoreID = cmiCore.core_id;
+                    }
+                    else
+                    {
+                        cmi_core cmi_Core = new cmi_core()
+                        {
+                            student_id = UserId,
+                            lesson_status = "not attempted",
+                            credit = "credit",
+                            lesson_mode = "normal",
+                            entry= "ab-initio",
+                            SCORM_course_id= iSCORM_Course_ID,
+                        };
+                        context.cmi_core.Attach(cmiCore);
+                        context.SaveChanges();
+                        iCoreID = cmi_Core.core_id;
+                    }
                 }
             }
             catch (Exception ex)
@@ -681,13 +703,13 @@ namespace OpenSourceSCORMLMS.Helpers
                         //int max_n = (int)cmd.ExecuteScalar();
                         //if (max_n == n)
                         //{
-                            DbCommand cmd1 = context.Database.GetDbConnection().CreateCommand();
-                            cmd1.CommandText = "INSERT dbo.cmi_interactions(n, core_id) output INSERTED.ID VALUES(@n, @cmi_core_id)";
-                            cmd1.Parameters.Add(new SqlParameter("@cmi_core_id", SqlDbType.Int) { Value = cmi_core_id });
-                            cmd1.Parameters.Add(new SqlParameter("@n", SqlDbType.Int) { Value = n });
-                            if (cmd1.Connection.State.Equals(ConnectionState.Closed)) { cmd1.Connection.Open(); }
-                            id = (int)cmd1.ExecuteScalar();
-                            return id;
+                        DbCommand cmd1 = context.Database.GetDbConnection().CreateCommand();
+                        cmd1.CommandText = "INSERT dbo.cmi_interactions(n, core_id) output INSERTED.ID VALUES(@n, @cmi_core_id)";
+                        cmd1.Parameters.Add(new SqlParameter("@cmi_core_id", SqlDbType.Int) { Value = cmi_core_id });
+                        cmd1.Parameters.Add(new SqlParameter("@n", SqlDbType.Int) { Value = n });
+                        if (cmd1.Connection.State.Equals(ConnectionState.Closed)) { cmd1.Connection.Open(); }
+                        id = (int)cmd1.ExecuteScalar();
+                        return id;
                         //}
                         //else
                         //{
@@ -1113,17 +1135,17 @@ namespace OpenSourceSCORMLMS.Helpers
                         context.Database.GetDbConnection().CreateCommand();
                         if (cmd.Connection.State.Equals(ConnectionState.Closed)) { cmd.Connection.Open(); }
                         int max_n = (int)cmd.ExecuteScalar();//get new highest "n"
-                        //if (max_n == n)
-                        //{
-                            // they supplied the correct value
-                            cmi_comment_from_learner cml = new cmi_comment_from_learner();
-                            cml.n = n;
-                            cml.core_id = core_id;
-                            context.cmi_comment_from_learner.Add(cml);
-                            context.SaveChanges();
+                                                             //if (max_n == n)
+                                                             //{
+                                                             // they supplied the correct value
+                        cmi_comment_from_learner cml = new cmi_comment_from_learner();
+                        cml.n = n;
+                        cml.core_id = core_id;
+                        context.cmi_comment_from_learner.Add(cml);
+                        context.SaveChanges();
 
-                            id = cml.id;
-                            return id;
+                        id = cml.id;
+                        return id;
                         //}
                         //else
                         //{
@@ -1359,16 +1381,16 @@ namespace OpenSourceSCORMLMS.Helpers
                             next_n += 1; //increment existing one
                         }
                         // compare next_n to the "n" that they sent
-                     //   if (next_n == n)
-                      //  {
-                            cmi_objectives co = new cmi_objectives();
-                            co.n = next_n;
-                            co.status = "not attempted";
-                            co.core_id = core_id;
-                            context.cmi_objectives.Add(co);
-                            context.SaveChanges();
-                            id = co.id;
-                            return id;
+                        //   if (next_n == n)
+                        //  {
+                        cmi_objectives co = new cmi_objectives();
+                        co.n = next_n;
+                        co.status = "not attempted";
+                        co.core_id = core_id;
+                        context.cmi_objectives.Add(co);
+                        context.SaveChanges();
+                        id = co.id;
+                        return id;
                         //}
                         //else
                         //{

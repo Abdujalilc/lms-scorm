@@ -12,12 +12,12 @@ CREATE PROCEDURE [dbo].[Sel_CoreTrackingID] @SCORM_Course_id int,
 AS
 BEGIN
   DECLARE @core_id int
-  SELECT TOP 1
-    @core_id = core_id
-  FROM dbo.cmi_core
-  WHERE student_id = @UserID
-  AND SCORM_course_id = @SCORM_Course_id
-  ORDER BY core_id DESC
+      SELECT TOP 1
+        @core_id = core_id
+      FROM dbo.cmi_core
+      WHERE student_id = @UserID
+      AND SCORM_course_id = @SCORM_Course_id
+      ORDER BY core_id DESC
   -- QUESTION about re-using cmi_core rows when they have completed a course
   IF @core_id IS NULL
     OR @core_id < 1

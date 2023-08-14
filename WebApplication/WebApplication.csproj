@@ -1,55 +1,54 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <UserSecretsId>aspnet-OpenSourceSCORMLMS-216CDD04-809C-4E90-8838-B15D3F9DACB5</UserSecretsId>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="notes\Migrations\**" />
-    <Content Remove="notes\Migrations\**" />
-    <EmbeddedResource Remove="notes\Migrations\**" />
-    <None Remove="notes\Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="appsettings.Production..json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Bower" Version="1.3.11" />
-    <PackageReference Include="Karambolo.Extensions.Logging.File" Version="3.4.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.10" />
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" PrivateAssets="All" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.IO.Compression.ZipFile" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Identity\Services\" />
-    <Folder Include="Data\Migrations\" />
-    <Folder Include="SCORMCourses\" />
-    <Folder Include="SCORMPackages\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\blank.html" />
-    <None Include="wwwroot\lib\bootstrap\bootstrap.min.js" />
-    <None Include="wwwroot\lib\jqueryui\jquery-ui.min.js" />
-    <None Include="wwwroot\lib\jquery\jquery.min.js" />
-    <None Include="wwwroot\lib\jquery\jquery.validate.min.js" />
-    <None Include="wwwroot\lib\jquery\jquery.validate.unobtrusive.min.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ScormXmlObjects\V1_2\adlcp_rootv1p2\adlcp_rootv1p2.csproj" />
-    <ProjectReference Include="..\ScormXmlObjects\V1_2\Altova\Altova.csproj" />
-    <ProjectReference Include="..\ScormXmlObjects\V1_2\imscp_rootv1p1p2\imscp_rootv1p1p2.csproj" />
-    <ProjectReference Include="..\ScormXmlObjects\V1_2\imsmd_rootv1p2p1\imsmd_rootv1p2p1.csproj" />
-    <ProjectReference Include="..\ScormXmlObjects\V1_3\adlcp_v1p3\adlcp_v1P3.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<UserSecretsId>aspnet-OpenSourceSCORMLMS-216CDD04-809C-4E90-8838-B15D3F9DACB5</UserSecretsId>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="Areas\Identity\Services\**" />
+		<Compile Remove="Data\Migrations\**" />
+		<Compile Remove="notes\Migrations\**" />
+		<Content Remove="Areas\Identity\Services\**" />
+		<Content Remove="Data\Migrations\**" />
+		<Content Remove="notes\Migrations\**" />
+		<EmbeddedResource Remove="Areas\Identity\Services\**" />
+		<EmbeddedResource Remove="Data\Migrations\**" />
+		<EmbeddedResource Remove="notes\Migrations\**" />
+		<None Remove="Areas\Identity\Services\**" />
+		<None Remove="Data\Migrations\**" />
+		<None Remove="notes\Migrations\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Remove="appsettings.Production..json" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Bower" Version="1.3.11" />
+		<PackageReference Include="Karambolo.Extensions.Logging.File" Version="3.4.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.10" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" PrivateAssets="All" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.IO.Compression.ZipFile" Version="4.3.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="SCORMCourses\" />
+		<Folder Include="SCORMPackages\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="wwwroot\blank.html" />
+		<None Include="wwwroot\lib\bootstrap\bootstrap.min.js" />
+		<None Include="wwwroot\lib\jqueryui\jquery-ui.min.js" />
+		<None Include="wwwroot\lib\jquery\jquery.min.js" />
+		<None Include="wwwroot\lib\jquery\jquery.validate.min.js" />
+		<None Include="wwwroot\lib\jquery\jquery.validate.unobtrusive.min.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ScormXmlObjects\V1_3\adlcp_v1p3\adlcp_v1P3.csproj" />
+		<!--<ProjectReference Include="..\ScormXmlObjects\V1_2\Altova\Altova.csproj" />-->
+		<!--<ProjectReference Include="..\ScormXmlObjects\V1_2\imscp_rootv1p1p2\imscp_rootv1p1p2.csproj" />-->
+		<ProjectReference Include="..\ScormXmlObjects\V1_2\imsmd_rootv1p2p1\imsmd_rootv1p2p1.csproj" />
+		<ProjectReference Include="..\ScormXmlObjects\V1_2\adlcp_rootv1p2\adlcp_rootv1p2.csproj" />
+	</ItemGroup>
 </Project>

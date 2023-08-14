@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,23 +18,23 @@ namespace OpenSourceSCORMLMS.Pages
     {
         private readonly UserManager<IdentityUser> _userManager;
         private IConfiguration _configuration;
-        private IHostingEnvironment _environment;
+        private IWebHostEnvironment _environment;
         private ILogger _logger { get; set; }
-        private Helpers.DatabaseHelper databaseHelper { get; set; }
-        public UploadFileModel(UserManager<IdentityUser> User, IConfiguration Configuration, IHostingEnvironment hostingEnvironment, ILogger<UploadFileModel> logger)
+        private DatabaseHelper databaseHelper { get; set; }
+        public UploadFileModel(UserManager<IdentityUser> User, IConfiguration Configuration, IWebHostEnvironment hostingEnvironment, ILogger<UploadFileModel> logger)
         {
             _userManager = User;
             _configuration = Configuration;
             _environment = hostingEnvironment;
             _logger = logger;
-            databaseHelper = new Helpers.DatabaseHelper(_logger);
+            databaseHelper = new DatabaseHelper(_logger);
         }
-        [Authorize]
+        
         public void OnGet()
         {
-            
+
         }
-        [Authorize]
+        
         public async Task<IActionResult> OnPostAsync(IFormFile file)
         {
             string UserID = _userManager.GetUserId(HttpContext.User);
@@ -75,7 +74,7 @@ namespace OpenSourceSCORMLMS.Pages
             {
                 sFileNameWithoutExtension = sFileNameWithoutExtension.Replace(c.ToString(), string.Empty);
             }
-    
+
             // Unzip the package
             string sPathToPackageFolder = Path.Combine(courseFolder, sFileNameWithoutExtension);
             ZipFile.ExtractToDirectory(pathToFile, sPathToPackageFolder, true);
@@ -87,10 +86,10 @@ namespace OpenSourceSCORMLMS.Pages
             string sPathToIndex = scorm.href;
 
             databaseHelper.InsertScormCourse(scorm.title, scorm.title, sPathToIndex, sPathToManifest, sPathToPackageFolder, scorm.SCORM_Version, DateTime.Now, UserID);
-           
+
             if (isSavedSuccessfully)
             {
-                string href = "/"+ConfigurationHelper.CourseFolder+""+sFileNameWithoutExtension+"/"+sPathToIndex+"";
+                string href = "/" + ConfigurationHelper.CourseFolder + "" + sFileNameWithoutExtension + "/" + sPathToIndex + "";
                 _logger.LogInformation("SCORM package saved.");
                 return new JsonResult(new { Message = fname, Url = href });
             }
@@ -99,57 +98,6 @@ namespace OpenSourceSCORMLMS.Pages
                 _logger.LogError("Error saving file.");
                 return new JsonResult(new { Message = "Error in saving file" });
             }
-        }
-
-        private void InsertPackagesTable(string sPathToPackageFolder)
-        {
-            // TODO replace this method with one that writes to SCO_Courses table
-
-            //string module_title = "";
-            //string datecreated = "";
-            //int module_id = 0;
-            //// get and parse LaunchParameters
-            //string sPathToLaunchParameters = Helpers.FileSystemHelper.FindLaunchParametersFile(sPathToPackageFolder);
-            //if (System.IO.File.Exists(sPathToLaunchParameters))
-            //{
-            //    // Read launch Parameters
-
-            //    string s = System.IO.File.ReadAllText(sPathToLaunchParameters);
-            //    foreach (string s1 in Helpers.ReadLineExtension.ReadLines(s))
-            //    {
-            //        if (s1.Contains("="))
-            //        {
-            //            string s2 = s1.Replace(@"""", "").Replace(";", "").Replace(" ", "").Replace("SCOClient.", "");
-            //            // we now have a name/value pair
-            //            string[] s3 = s2.Split("=");
-            //            if (s3.Length == 2)
-            //            {
-            //                string sKey = s3[0];
-            //                string sValue = s3[1].Replace("'", "");
-            //                switch (sKey)
-            //                {
-            //                    case "Module_ID":
-            //                        int _module_id = 0;
-            //                        if (int.TryParse(sValue, out _module_id))
-            //                        {
-            //                            module_id = _module_id;
-            //                        }
-            //                        break;
-            //                    case "Module_Title":
-            //                        module_title = sValue;
-            //                        break;
-            //                    case "DateCreated":
-            //                        datecreated = sValue;
-            //                        break;
-
-            //                }
-
-            //            }
-            //        }
-
-            //    }
-            //    Helpers.SQLLiteHelper.insertPackage(sPathToPackageFolder, module_id, module_title, datecreated);
-            //}
         }
     }
 }

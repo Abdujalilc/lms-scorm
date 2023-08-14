@@ -29,7 +29,7 @@ namespace OpenSourceSCORMLMS.Pages
             _logger = logger;
             databaseHelper = new DatabaseHelper(_logger);
         }
-        [Authorize]
+        
         public void OnGet()
         {
             if (!Models.SignedInUser.isSignedIn)
@@ -44,7 +44,7 @@ namespace OpenSourceSCORMLMS.Pages
                 bUserHasCourse = databaseHelper.isCourseInUserStudyArea(SCORM_Course_id, UserID);
             }
         }
-        [Authorize]
+        
         public IActionResult OnPost([FromForm] Models.SCORMCourse package)
         {
             string UserID = _userManager.GetUserId(HttpContext.User);

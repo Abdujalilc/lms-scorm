@@ -4,10 +4,7 @@ using imsmd_rootv1p2p1;
 using adlcp_v1p3;
 using imscp_v1p1;
 using Microsoft.Extensions.Logging;
-using System.Text;
 using System.Xml;
-using System.Linq;
-using System;
 
 namespace OpenSourceSCORMLMS.Helpers
 {

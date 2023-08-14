@@ -25,7 +25,7 @@ namespace OpenSourceSCORMLMS.Pages
             _logger = logger;
             databaseHelper = new Helpers.DatabaseHelper(_logger);
         }
-       [Authorize]
+       
         public void OnGet()
         {
             if (!Models.SignedInUser.isSignedIn)
