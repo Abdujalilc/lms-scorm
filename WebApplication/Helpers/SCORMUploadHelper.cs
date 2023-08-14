@@ -58,7 +58,7 @@ namespace OpenSourceSCORMLMS.Helpers
             {
                 SCORM_Version = this.GetSCORMVersion(root); //backwards way to get the version
             }
-            
+
             if (SCORM_Version == "1.2")
             {
                 logger.LogInformation("Module is SCORM 1.2");
@@ -98,7 +98,8 @@ namespace OpenSourceSCORMLMS.Helpers
                 manifestTypeExtended root2 = new manifestTypeExtended(doc2.Load(XMLPath));
                 identifier = root.Getidentifier().Value;
                 title = identifier;
-                version = root.Getversion().Value;
+                try { version = root.Getversion().Value; }
+                catch { }
                 // Now we start looking for the default web page. Organizations => organization => item
                 // get the identifierref for the first item
                 // then find that identifier in resources => resource. That resource.href is the default launching page for the sco
