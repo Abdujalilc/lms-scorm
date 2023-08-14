@@ -14,3 +14,6 @@ while (node.hasChildNodes()) {
 }
 
 blnDebug=false
+
+Add-Migration InitCommit -force
+Update-Database -Verbose

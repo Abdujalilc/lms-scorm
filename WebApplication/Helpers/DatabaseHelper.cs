@@ -651,7 +651,7 @@ namespace OpenSourceSCORMLMS.Helpers
                             entry = "ab-initio",
                             SCORM_course_id = iSCORM_Course_ID,
                         };
-                        context.cmi_core.Attach(cmiCore);
+                        context.cmi_core.Attach(cmi_Core);
                         context.SaveChanges();
                         iCoreID = cmi_Core.core_id;
                     }
@@ -682,22 +682,8 @@ namespace OpenSourceSCORMLMS.Helpers
                     context.session.Attach(session);
                     int result = context.SaveChanges();
                     iSessionID = session.id;
-                    /*string query = $"dbo.Sel_SessionID {iSCORM_Course_ID},  null, '{UserId}', {sessionid}, {iCore_id}, '{dtStartTime}'";
-                    var fs = FormattableStringFactory.Create(query);
-                    var session = context.session.FromSqlInterpolated(fs).IgnoreQueryFilters().ToList().FirstOrDefault();
-                    iSessionID = session.id;*/
                 }
             }
-            /*
-             DECLARE @id int
-
-              INSERT dbo.session (sessionid, [user_id], startdatetime, cmi_core_id, scorm_course_id, sco_identifier)
-                VALUES (@sessionID, @user_id, @dtStartDateTime, @core_id, @SCORM_Course_id, @SCO_ID)
-              SELECT
-                @id = @@IDENTITY
-
-              SELECT id, sessionid, user_id, startdatetime, enddatetime, SCORM_Course_id, SCO_identifier, cmi_core_id from dbo.session where id=@id
-             */
             catch (Exception ex)
             {
                 logger.LogError(ex.Message);

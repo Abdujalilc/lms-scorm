@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adlcp_rootv1p2", "ScormXmlO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imscp_rootv1p1p2", "ScormXmlObjects\V1_2\imscp_rootv1p1p2\imscp_rootv1p1p2.csproj", "{4878C28C-7ECF-7B45-8B0B-3CA889C10342}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "WebApplication\WebApplication.csproj", "{3B95DB81-5228-4C08-A753-F8F2E7B380DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LmsApplication", "WebApplication\LmsApplication.csproj", "{3B95DB81-5228-4C08-A753-F8F2E7B380DB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{335BAB6F-97C1-0E4C-8CDE-7197939EC0E1} = {335BAB6F-97C1-0E4C-8CDE-7197939EC0E1}
 		{3580A349-8FD1-4D3C-9426-9CACC7685695} = {3580A349-8FD1-4D3C-9426-9CACC7685695}
