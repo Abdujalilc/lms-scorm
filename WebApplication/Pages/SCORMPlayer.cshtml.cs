@@ -29,8 +29,8 @@ namespace OpenSourceSCORMLMS.Pages
             _environment = hostingEnvironment;
             _logger = logger;
             databaseHelper = new DatabaseHelper(_logger);
-        }
-        [Authorize]
+        }        
+        
         public void OnGet()
         {
             if (!Models.SignedInUser.isSignedIn)
@@ -84,13 +84,11 @@ namespace OpenSourceSCORMLMS.Pages
             return scoLaunch;
 
         }
-
         private int getSCOSessionID(int iCore_id, int iSCORM_Course_id, string UserId, string aspnetSessionID, DateTime dtStartTime)
         {
             int iSessionID = databaseHelper.GetSessionID(iSCORM_Course_id,  UserId, aspnetSessionID, iCore_id, dtStartTime);
             return iSessionID;
         }
-
         private int getSCOCoreID(string UserID, int iSCORM_Course_id)
         {
             int iCore_id = databaseHelper.GetCoreTrackingID(iSCORM_Course_id, UserID);

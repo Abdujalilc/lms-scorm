@@ -5,7 +5,6 @@
     var showBanner = !consentFeature?.CanTrack ?? false;
     var cookieString = consentFeature?.CreateConsentCookie();
 }
-
 @if (showBanner)
 {
     <nav id="cookieConsent" class="navbar navbar-default navbar-fixed-top" role="alert">
@@ -24,7 +23,6 @@
                     This site uses cookies to track signed-in users while using the application. No data is shared with 3rd parties.
                 </p>
                 <div class="navbar-right">
-                    <a asp-page="/Privacy" class="btn btn-info navbar-btn">Learn More</a>
                     <button type="button" class="btn btn-default navbar-btn" data-cookie-string="@cookieString">Accept</button>
                 </div>
             </div>
