@@ -566,10 +566,33 @@ namespace OpenSourceSCORMLMS.Helpers
             {
                 using (var context = ConnectionHelper.getContext())
                 {
-                    listCourses = context.SCORM_Course_FromSP
+                    listCourses =
+                        (from sc in context.SCORM_Course
+                         join um in context.User_Module
+                         on new { sc.id, UserID = UserId } equals new { um.SCORM_Course.id, um.UserID } into _um
+                         from u in _um.DefaultIfEmpty()
+                         select new SCORM_Course_fromSP
+                         {
+                             id = sc.id,
+                             title = sc.title_from_manifest,
+                             pathToIndex = sc.pathToIndex,
+                             DateUploaded = sc.DateUploaded,
+                             user_module_id = u == null ? 0 : u.id
+                         }).ToList();
+
+                    /*listCourses = context.SCORM_Course_FromSP
                       .FromSql($"dbo.Sel_CoursesWithUserIndicator {UserId}")
-                      .ToList();
+                      .ToList();*/
                 }
+                /*SELECT sc.id,
+         title_from_manifest AS title,
+         pathtoIndex,
+         DateUploaded,
+         COALESCE(um.id,0) as user_module_id FROM SCORM_Course sc
+  LEFT JOIN User_Module um
+    ON sc.id = um.SCORM_Courseid
+    AND um.UserID = @userID
+  ORDER BY title_from_manifest*/
             }
             catch (Exception ex)
             {
@@ -647,12 +670,34 @@ namespace OpenSourceSCORMLMS.Helpers
             {
                 using (var context = ConnectionHelper.getContext())
                 {
-                    string query = $"dbo.Sel_SessionID {iSCORM_Course_ID},  null, '{UserId}', {sessionid}, {iCore_id}, '{dtStartTime}'";
+                    session session = new session()
+                    {
+                        sessionid = sessionid,
+                        user_id = UserId,
+                        startdatetime = dtStartTime,
+                        cmi_core_id = iCore_id,
+                        SCORM_Course_id = iSCORM_Course_ID,
+                        SCO_identifier = null
+                    };
+                    context.session.Attach(session);
+                    int result = context.SaveChanges();
+                    iSessionID = session.id;
+                    /*string query = $"dbo.Sel_SessionID {iSCORM_Course_ID},  null, '{UserId}', {sessionid}, {iCore_id}, '{dtStartTime}'";
                     var fs = FormattableStringFactory.Create(query);
                     var session = context.session.FromSqlInterpolated(fs).IgnoreQueryFilters().ToList().FirstOrDefault();
-                    iSessionID = session.id;
+                    iSessionID = session.id;*/
                 }
             }
+            /*
+             DECLARE @id int
+
+              INSERT dbo.session (sessionid, [user_id], startdatetime, cmi_core_id, scorm_course_id, sco_identifier)
+                VALUES (@sessionID, @user_id, @dtStartDateTime, @core_id, @SCORM_Course_id, @SCO_ID)
+              SELECT
+                @id = @@IDENTITY
+
+              SELECT id, sessionid, user_id, startdatetime, enddatetime, SCORM_Course_id, SCO_identifier, cmi_core_id from dbo.session where id=@id
+             */
             catch (Exception ex)
             {
                 logger.LogError(ex.Message);

@@ -85,10 +85,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Altova, Version=1.0.1875.28477, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Altova\bin\Debug\Altova.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -296,6 +292,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Altova\Altova.csproj">
+      <Project>{d43e6c54-2df5-454e-9566-dffe2f3a6946}</Project>
+      <Name>Altova</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

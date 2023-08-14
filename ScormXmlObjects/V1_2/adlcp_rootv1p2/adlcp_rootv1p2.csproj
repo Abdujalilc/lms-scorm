@@ -94,10 +94,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="imsmd_rootv1p2p1">
-      <Name>imsmd_rootv1p2p1</Name>
-      <HintPath>..\imsmd_rootv1p2p1\bin\Debug\imsmd_rootv1p2p1.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -107,11 +103,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\Altova\Altova.csproj">
-      <Name>Altova</Name>
-      <Project>{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adlcp_itemType.cs">
@@ -232,6 +223,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Altova\Altova.csproj">
+      <Project>{d43e6c54-2df5-454e-9566-dffe2f3a6946}</Project>
+      <Name>Altova</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\imsmd_rootv1p2p1\imsmd_rootv1p2p1.csproj">
+      <Project>{bc758c30-dc21-2f42-869c-969999f6564e}</Project>
+      <Name>imsmd_rootv1p2p1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

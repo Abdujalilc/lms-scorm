@@ -8,7 +8,8 @@ GO
 
 -------------------------------------------------
 
-CREATE PROCEDURE [dbo].[Sel_SessionID] @SCORM_Course_id int,
+CREATE PROCEDURE [dbo].[Sel_SessionID] 
+@SCORM_Course_id int,
 @SCO_ID varchar(1000),
 @user_id nvarchar(450),
 @sessionID nvarchar(100),

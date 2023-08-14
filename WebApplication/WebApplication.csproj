@@ -46,7 +46,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\ScormXmlObjects\V1_3\adlcp_v1p3\adlcp_v1P3.csproj" />
-		<ProjectReference Include="..\ScormXmlObjects\V1_2\imsmd_rootv1p2p1\imsmd_rootv1p2p1.csproj" />
 		<ProjectReference Include="..\ScormXmlObjects\V1_2\adlcp_rootv1p2\adlcp_rootv1p2.csproj" />
 	</ItemGroup>
 </Project>
