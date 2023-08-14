@@ -16,15 +16,15 @@ using Altova.Types;
 namespace imscp_v1p1
 {
 
-	public class schemaversionType : SchemaString
-	{
-		public schemaversionType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class schemaversionType : SchemaString
+    {
+        public schemaversionType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

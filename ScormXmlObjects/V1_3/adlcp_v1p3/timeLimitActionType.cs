@@ -16,15 +16,15 @@ using Altova.Types;
 namespace adlcp_v1p3
 {
 
-	public class timeLimitActionType : SchemaString
-	{
-		public timeLimitActionType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class timeLimitActionType : SchemaString
+    {
+        public timeLimitActionType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

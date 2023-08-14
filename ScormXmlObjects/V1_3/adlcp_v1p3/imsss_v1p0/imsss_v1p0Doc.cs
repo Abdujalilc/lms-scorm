@@ -13,11 +13,11 @@
 
 namespace imsss_v1p0
 {
-	public class imsss_v1p0Doc : Altova.Document
-	{
-		override protected void DeclareNamespaces(Altova.Node node)
-		{
-			DeclareNamespace(node, "", "http://www.imsglobal.org/xsd/imsss");
-		}
-	}
+    public class imsss_v1p0Doc : Altova.Document
+    {
+        override protected void DeclareNamespaces(Altova.Node node)
+        {
+            DeclareNamespace(node, "", "http://www.imsglobal.org/xsd/imsss");
+        }
+    }
 }

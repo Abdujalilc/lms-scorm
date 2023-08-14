@@ -29,12 +29,12 @@ namespace OpenSourceSCORMLMS.Pages
             _logger = logger;
             databaseHelper = new DatabaseHelper(_logger);
         }
-        
+
         public void OnGet()
         {
 
         }
-        
+
         public async Task<IActionResult> OnPostAsync(IFormFile file)
         {
             string UserID = _userManager.GetUserId(HttpContext.User);

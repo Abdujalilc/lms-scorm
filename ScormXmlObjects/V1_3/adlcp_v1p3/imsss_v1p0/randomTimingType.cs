@@ -16,15 +16,15 @@ using Altova.Types;
 namespace imsss_v1p0
 {
 
-	public class randomTimingType : SchemaString
-	{
-		public randomTimingType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class randomTimingType : SchemaString
+    {
+        public randomTimingType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

@@ -13,11 +13,11 @@
 
 namespace adlcp_v1p3
 {
-	public class adlcp_v1p3Doc : Altova.Document
-	{
-		override protected void DeclareNamespaces(Altova.Node node)
-		{
-			DeclareNamespace(node, "", "http://www.adlnet.org/xsd/adlcp_v1p3");
-		}
-	}
+    public class adlcp_v1p3Doc : Altova.Document
+    {
+        override protected void DeclareNamespaces(Altova.Node node)
+        {
+            DeclareNamespace(node, "", "http://www.adlnet.org/xsd/adlcp_v1p3");
+        }
+    }
 }

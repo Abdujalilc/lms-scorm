@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OpenSourceSCORMLMS.Data.ModelSCORM;
-using System.Linq;
-using System.Reflection.Emit;
 
 namespace OpenSourceSCORMLMS.Data
 {
@@ -11,9 +9,9 @@ namespace OpenSourceSCORMLMS.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-             
+
         }
-       
+
         public DbSet<cmi_core> cmi_core { get; set; }
         public DbSet<cmi_data> cmi_data { get; set; }
         public DbSet<cmi_comment_from_learner> cmi_comment_from_learner { get; set; }
@@ -33,6 +31,6 @@ namespace OpenSourceSCORMLMS.Data
             base.OnModelCreating(builder);
             builder.Entity<SCORM_Course_fromSP>().HasNoKey();
         }
-    }   
-    
+    }
+
 }

@@ -16,15 +16,15 @@ using Altova.Types;
 namespace adlnav_v1p3
 {
 
-	public class hideLMSUIType : SchemaString
-	{
-		public hideLMSUIType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class hideLMSUIType : SchemaString
+    {
+        public hideLMSUIType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

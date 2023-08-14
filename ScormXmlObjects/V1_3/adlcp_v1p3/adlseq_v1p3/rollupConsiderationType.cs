@@ -16,15 +16,15 @@ using Altova.Types;
 namespace adlseq_v1p3
 {
 
-	public class rollupConsiderationType : SchemaString
-	{
-		public rollupConsiderationType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class rollupConsiderationType : SchemaString
+    {
+        public rollupConsiderationType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

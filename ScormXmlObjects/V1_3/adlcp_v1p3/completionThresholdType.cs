@@ -16,29 +16,29 @@ using Altova.Types;
 namespace adlcp_v1p3
 {
 
-	public class completionThresholdType : SchemaDecimal
-	{
-		public completionThresholdType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class completionThresholdType : SchemaDecimal
+    {
+        public completionThresholdType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
+        public void Validate()
+        {
 
-			if (CompareTo(GetMinInclusive()) < 0)
-				throw new System.Exception("Out of range");
+            if (CompareTo(GetMinInclusive()) < 0)
+                throw new System.Exception("Out of range");
 
-			if (CompareTo(GetMaxInclusive()) > 0)
-				throw new System.Exception("Out of range");
-		}
-		public SchemaDecimal GetMinInclusive()
-		{
-			return new SchemaDecimal("0.0");
-		}
-		public SchemaDecimal GetMaxInclusive()
-		{
-			return new SchemaDecimal("1.0");
-		}
-	}
+            if (CompareTo(GetMaxInclusive()) > 0)
+                throw new System.Exception("Out of range");
+        }
+        public SchemaDecimal GetMinInclusive()
+        {
+            return new SchemaDecimal("0.0");
+        }
+        public SchemaDecimal GetMaxInclusive()
+        {
+            return new SchemaDecimal("1.0");
+        }
+    }
 }

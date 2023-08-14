@@ -6,7 +6,7 @@ namespace OpenSourceSCORMLMS.Helpers
 {
     public class ConnectionHelper
     {
- 
+
         public static string getConnectionString()
         {
             return Helpers.ConfigurationHelper.DefaultConnection;

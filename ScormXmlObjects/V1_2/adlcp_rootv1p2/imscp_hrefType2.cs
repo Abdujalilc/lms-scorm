@@ -16,21 +16,21 @@ using Altova.Types;
 namespace adlcp_rootv1p2.imscp
 {
 
-	public class hrefType2 : SchemaString
-	{
-		public hrefType2(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class hrefType2 : SchemaString
+    {
+        public hrefType2(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-			if (Value.Length > GetMaxLength())
-				throw new System.Exception("Too long");
-		}
-		public int GetMaxLength()
-		{
-			return 2000;
-		}
-	}
+        public void Validate()
+        {
+            if (Value.Length > GetMaxLength())
+                throw new System.Exception("Too long");
+        }
+        public int GetMaxLength()
+        {
+            return 2000;
+        }
+    }
 }

@@ -16,29 +16,29 @@ using Altova.Types;
 namespace imsss_v1p0
 {
 
-	public class weightType : SchemaDecimal
-	{
-		public weightType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class weightType : SchemaDecimal
+    {
+        public weightType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
+        public void Validate()
+        {
 
-			if (CompareTo(GetMaxInclusive()) > 0)
-				throw new System.Exception("Out of range");
+            if (CompareTo(GetMaxInclusive()) > 0)
+                throw new System.Exception("Out of range");
 
-			if (CompareTo(GetMinInclusive()) < 0)
-				throw new System.Exception("Out of range");
-		}
-		public SchemaDecimal GetMaxInclusive()
-		{
-			return new SchemaDecimal("1");
-		}
-		public SchemaDecimal GetMinInclusive()
-		{
-			return new SchemaDecimal("0");
-		}
-	}
+            if (CompareTo(GetMinInclusive()) < 0)
+                throw new System.Exception("Out of range");
+        }
+        public SchemaDecimal GetMaxInclusive()
+        {
+            return new SchemaDecimal("1");
+        }
+        public SchemaDecimal GetMinInclusive()
+        {
+            return new SchemaDecimal("0");
+        }
+    }
 }

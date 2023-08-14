@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpenSourceSCORMLMS.Data.ModelSCORM
@@ -17,9 +15,9 @@ namespace OpenSourceSCORMLMS.Data.ModelSCORM
         public string sco_id { get; set; }
         [StringLength(50)]
         public string total_time { get; set; }
-      
+
         public string launch_data { get; set; }
-       
+
         public string suspend_data { get; set; }
         [Column(TypeName = "text")]
         public string cmi_comments { get; set; }

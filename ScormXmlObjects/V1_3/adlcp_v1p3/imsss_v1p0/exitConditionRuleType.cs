@@ -16,182 +16,182 @@ using System.Xml;
 
 namespace imsss_v1p0
 {
-	public class exitConditionRuleType : sequencingRuleType
-	{
-		#region Forward constructors
-		public exitConditionRuleType() : base() { SetCollectionParents(); }
-		public exitConditionRuleType(XmlDocument doc) : base(doc) { SetCollectionParents(); }
-		public exitConditionRuleType(XmlNode node) : base(node) { SetCollectionParents(); }
-		public exitConditionRuleType(Altova.Node node) : base(node) { SetCollectionParents(); }
-		#endregion // Forward constructors
+    public class exitConditionRuleType : sequencingRuleType
+    {
+        #region Forward constructors
+        public exitConditionRuleType() : base() { SetCollectionParents(); }
+        public exitConditionRuleType(XmlDocument doc) : base(doc) { SetCollectionParents(); }
+        public exitConditionRuleType(XmlNode node) : base(node) { SetCollectionParents(); }
+        public exitConditionRuleType(Altova.Node node) : base(node) { SetCollectionParents(); }
+        #endregion // Forward constructors
 
-		public override void AdjustPrefix()
-		{
-			int nCount;
+        public override void AdjustPrefix()
+        {
+            int nCount;
 
-			nCount = DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
-			for (int i = 0; i < nCount; i++)
-			{
-				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction", i);
-				InternalAdjustPrefix(DOMNode, true);
-				new ruleActionType2(DOMNode).AdjustPrefix();
-			}
-		}
+            nCount = DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
+            for (int i = 0; i < nCount; i++)
+            {
+                XmlNode DOMNode = GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction", i);
+                InternalAdjustPrefix(DOMNode, true);
+                new ruleActionType2(DOMNode).AdjustPrefix();
+            }
+        }
 
 
-		#region ruleAction accessor methods
-		public int GetruleActionMinCount()
-		{
-			return 1;
-		}
+        #region ruleAction accessor methods
+        public int GetruleActionMinCount()
+        {
+            return 1;
+        }
 
-		public int ruleActionMinCount
-		{
-			get
-			{
-				return 1;
-			}
-		}
+        public int ruleActionMinCount
+        {
+            get
+            {
+                return 1;
+            }
+        }
 
-		public int GetruleActionMaxCount()
-		{
-			return 1;
-		}
+        public int GetruleActionMaxCount()
+        {
+            return 1;
+        }
 
-		public int ruleActionMaxCount
-		{
-			get
-			{
-				return 1;
-			}
-		}
+        public int ruleActionMaxCount
+        {
+            get
+            {
+                return 1;
+            }
+        }
 
-		public int GetruleActionCount()
-		{
-			return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
-		}
+        public int GetruleActionCount()
+        {
+            return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
+        }
 
-		public int ruleActionCount
-		{
-			get
-			{
-				return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
-			}
-		}
+        public int ruleActionCount
+        {
+            get
+            {
+                return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
+            }
+        }
 
-		public bool HasruleAction()
-		{
-			return HasDomChild(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
-		}
+        public bool HasruleAction()
+        {
+            return HasDomChild(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction");
+        }
 
-		public ruleActionType2 GetruleActionAt(int index)
-		{
-			return new ruleActionType2(GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction", index));
-		}
+        public ruleActionType2 GetruleActionAt(int index)
+        {
+            return new ruleActionType2(GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction", index));
+        }
 
-		public ruleActionType2 GetruleAction()
-		{
-			return GetruleActionAt(0);
-		}
+        public ruleActionType2 GetruleAction()
+        {
+            return GetruleActionAt(0);
+        }
 
-		public ruleActionType2 ruleAction
-		{
-			get
-			{
-				return GetruleActionAt(0);
-			}
-		}
+        public ruleActionType2 ruleAction
+        {
+            get
+            {
+                return GetruleActionAt(0);
+            }
+        }
 
-		public void RemoveruleActionAt(int index)
-		{
-			RemoveDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction", index);
-		}
+        public void RemoveruleActionAt(int index)
+        {
+            RemoveDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "ruleAction", index);
+        }
 
-		public void RemoveruleAction()
-		{
-			while (HasruleAction())
-				RemoveruleActionAt(0);
-		}
+        public void RemoveruleAction()
+        {
+            while (HasruleAction())
+                RemoveruleActionAt(0);
+        }
 
-		public void AddruleAction(ruleActionType2 newValue)
-		{
-			AppendDomElement("http://www.imsglobal.org/xsd/imsss", "ruleAction", newValue);
-		}
+        public void AddruleAction(ruleActionType2 newValue)
+        {
+            AppendDomElement("http://www.imsglobal.org/xsd/imsss", "ruleAction", newValue);
+        }
 
-		public void InsertruleActionAt(ruleActionType2 newValue, int index)
-		{
-			InsertDomElementAt("http://www.imsglobal.org/xsd/imsss", "ruleAction", index, newValue);
-		}
+        public void InsertruleActionAt(ruleActionType2 newValue, int index)
+        {
+            InsertDomElementAt("http://www.imsglobal.org/xsd/imsss", "ruleAction", index, newValue);
+        }
 
-		public void ReplaceruleActionAt(ruleActionType2 newValue, int index)
-		{
-			ReplaceDomElementAt("http://www.imsglobal.org/xsd/imsss", "ruleAction", index, newValue);
-		}
-		#endregion // ruleAction accessor methods
+        public void ReplaceruleActionAt(ruleActionType2 newValue, int index)
+        {
+            ReplaceDomElementAt("http://www.imsglobal.org/xsd/imsss", "ruleAction", index, newValue);
+        }
+        #endregion // ruleAction accessor methods
 
-		#region ruleAction collection
-        public ruleActionCollection	MyruleActions = new ruleActionCollection( );
+        #region ruleAction collection
+        public ruleActionCollection MyruleActions = new ruleActionCollection();
 
-        public class ruleActionCollection: IEnumerable
+        public class ruleActionCollection : IEnumerable
         {
             exitConditionRuleType parent;
             public exitConditionRuleType Parent
-			{
-				set
-				{
-					parent = value;
-				}
-			}
-			public ruleActionEnumerator GetEnumerator() 
-			{
-				return new ruleActionEnumerator(parent);
-			}
-		
-			IEnumerator IEnumerable.GetEnumerator() 
-			{
-				return GetEnumerator();
-			}
+            {
+                set
+                {
+                    parent = value;
+                }
+            }
+            public ruleActionEnumerator GetEnumerator()
+            {
+                return new ruleActionEnumerator(parent);
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
         }
 
-        public class ruleActionEnumerator: IEnumerator 
+        public class ruleActionEnumerator : IEnumerator
         {
-			int nIndex;
-			exitConditionRuleType parent;
-			public ruleActionEnumerator(exitConditionRuleType par) 
-			{
-				parent = par;
-				nIndex = -1;
-			}
-			public void Reset() 
-			{
-				nIndex = -1;
-			}
-			public bool MoveNext() 
-			{
-				nIndex++;
-				return(nIndex < parent.ruleActionCount );
-			}
-			public ruleActionType2  Current 
-			{
-				get 
-				{
-					return(parent.GetruleActionAt(nIndex));
-				}
-			}
-			object IEnumerator.Current 
-			{
-				get 
-				{
-					return(Current);
-				}
-			}
-    	}
-	
+            int nIndex;
+            exitConditionRuleType parent;
+            public ruleActionEnumerator(exitConditionRuleType par)
+            {
+                parent = par;
+                nIndex = -1;
+            }
+            public void Reset()
+            {
+                nIndex = -1;
+            }
+            public bool MoveNext()
+            {
+                nIndex++;
+                return (nIndex < parent.ruleActionCount);
+            }
+            public ruleActionType2 Current
+            {
+                get
+                {
+                    return (parent.GetruleActionAt(nIndex));
+                }
+            }
+            object IEnumerator.Current
+            {
+                get
+                {
+                    return (Current);
+                }
+            }
+        }
+
         #endregion // ruleAction collection
 
         private void SetCollectionParents()
         {
-            MyruleActions.Parent = this; 
-	}
-}
+            MyruleActions.Parent = this;
+        }
+    }
 }

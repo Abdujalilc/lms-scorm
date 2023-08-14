@@ -16,21 +16,21 @@ using Altova.Types;
 namespace adlcp_rootv1p2
 {
 
-	public class datafromlmsType : SchemaString
-	{
-		public datafromlmsType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class datafromlmsType : SchemaString
+    {
+        public datafromlmsType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-			if (Value.Length > GetMaxLength())
-				throw new System.Exception("Too long");
-		}
-		public int GetMaxLength()
-		{
-			return 255;
-		}
-	}
+        public void Validate()
+        {
+            if (Value.Length > GetMaxLength())
+                throw new System.Exception("Too long");
+        }
+        public int GetMaxLength()
+        {
+            return 255;
+        }
+    }
 }

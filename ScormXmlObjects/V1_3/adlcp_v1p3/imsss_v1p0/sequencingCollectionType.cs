@@ -17,182 +17,182 @@ using System.Xml;
 
 namespace imsss_v1p0
 {
-	public class sequencingCollectionType : Altova.Node
-	{
-		#region Forward constructors
-		public sequencingCollectionType() : base() { SetCollectionParents(); }
-		public sequencingCollectionType(XmlDocument doc) : base(doc) { SetCollectionParents(); }
-		public sequencingCollectionType(XmlNode node) : base(node) { SetCollectionParents(); }
-		public sequencingCollectionType(Altova.Node node) : base(node) { SetCollectionParents(); }
-		#endregion // Forward constructors
+    public class sequencingCollectionType : Altova.Node
+    {
+        #region Forward constructors
+        public sequencingCollectionType() : base() { SetCollectionParents(); }
+        public sequencingCollectionType(XmlDocument doc) : base(doc) { SetCollectionParents(); }
+        public sequencingCollectionType(XmlNode node) : base(node) { SetCollectionParents(); }
+        public sequencingCollectionType(Altova.Node node) : base(node) { SetCollectionParents(); }
+        #endregion // Forward constructors
 
-		public override void AdjustPrefix()
-		{
-			int nCount;
+        public override void AdjustPrefix()
+        {
+            int nCount;
 
-			nCount = DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
-			for (int i = 0; i < nCount; i++)
-			{
-				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing", i);
-				InternalAdjustPrefix(DOMNode, true);
-				new sequencingType(DOMNode).AdjustPrefix();
-			}
-		}
+            nCount = DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
+            for (int i = 0; i < nCount; i++)
+            {
+                XmlNode DOMNode = GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing", i);
+                InternalAdjustPrefix(DOMNode, true);
+                new sequencingType(DOMNode).AdjustPrefix();
+            }
+        }
 
 
-		#region sequencing accessor methods
-		public int GetsequencingMinCount()
-		{
-			return 1;
-		}
+        #region sequencing accessor methods
+        public int GetsequencingMinCount()
+        {
+            return 1;
+        }
 
-		public int sequencingMinCount
-		{
-			get
-			{
-				return 1;
-			}
-		}
+        public int sequencingMinCount
+        {
+            get
+            {
+                return 1;
+            }
+        }
 
-		public int GetsequencingMaxCount()
-		{
-			return Int32.MaxValue;
-		}
+        public int GetsequencingMaxCount()
+        {
+            return Int32.MaxValue;
+        }
 
-		public int sequencingMaxCount
-		{
-			get
-			{
-				return Int32.MaxValue;
-			}
-		}
+        public int sequencingMaxCount
+        {
+            get
+            {
+                return Int32.MaxValue;
+            }
+        }
 
-		public int GetsequencingCount()
-		{
-			return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
-		}
+        public int GetsequencingCount()
+        {
+            return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
+        }
 
-		public int sequencingCount
-		{
-			get
-			{
-				return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
-			}
-		}
+        public int sequencingCount
+        {
+            get
+            {
+                return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
+            }
+        }
 
-		public bool Hassequencing()
-		{
-			return HasDomChild(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
-		}
+        public bool Hassequencing()
+        {
+            return HasDomChild(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing");
+        }
 
-		public sequencingType GetsequencingAt(int index)
-		{
-			return new sequencingType(GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing", index));
-		}
+        public sequencingType GetsequencingAt(int index)
+        {
+            return new sequencingType(GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing", index));
+        }
 
-		public sequencingType Getsequencing()
-		{
-			return GetsequencingAt(0);
-		}
+        public sequencingType Getsequencing()
+        {
+            return GetsequencingAt(0);
+        }
 
-		public sequencingType sequencing
-		{
-			get
-			{
-				return GetsequencingAt(0);
-			}
-		}
+        public sequencingType sequencing
+        {
+            get
+            {
+                return GetsequencingAt(0);
+            }
+        }
 
-		public void RemovesequencingAt(int index)
-		{
-			RemoveDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing", index);
-		}
+        public void RemovesequencingAt(int index)
+        {
+            RemoveDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "sequencing", index);
+        }
 
-		public void Removesequencing()
-		{
-			while (Hassequencing())
-				RemovesequencingAt(0);
-		}
+        public void Removesequencing()
+        {
+            while (Hassequencing())
+                RemovesequencingAt(0);
+        }
 
-		public void Addsequencing(sequencingType newValue)
-		{
-			AppendDomElement("http://www.imsglobal.org/xsd/imsss", "sequencing", newValue);
-		}
+        public void Addsequencing(sequencingType newValue)
+        {
+            AppendDomElement("http://www.imsglobal.org/xsd/imsss", "sequencing", newValue);
+        }
 
-		public void InsertsequencingAt(sequencingType newValue, int index)
-		{
-			InsertDomElementAt("http://www.imsglobal.org/xsd/imsss", "sequencing", index, newValue);
-		}
+        public void InsertsequencingAt(sequencingType newValue, int index)
+        {
+            InsertDomElementAt("http://www.imsglobal.org/xsd/imsss", "sequencing", index, newValue);
+        }
 
-		public void ReplacesequencingAt(sequencingType newValue, int index)
-		{
-			ReplaceDomElementAt("http://www.imsglobal.org/xsd/imsss", "sequencing", index, newValue);
-		}
-		#endregion // sequencing accessor methods
+        public void ReplacesequencingAt(sequencingType newValue, int index)
+        {
+            ReplaceDomElementAt("http://www.imsglobal.org/xsd/imsss", "sequencing", index, newValue);
+        }
+        #endregion // sequencing accessor methods
 
-		#region sequencing collection
-        public sequencingCollection	Mysequencings = new sequencingCollection( );
+        #region sequencing collection
+        public sequencingCollection Mysequencings = new sequencingCollection();
 
-        public class sequencingCollection: IEnumerable
+        public class sequencingCollection : IEnumerable
         {
             sequencingCollectionType parent;
             public sequencingCollectionType Parent
-			{
-				set
-				{
-					parent = value;
-				}
-			}
-			public sequencingEnumerator GetEnumerator() 
-			{
-				return new sequencingEnumerator(parent);
-			}
-		
-			IEnumerator IEnumerable.GetEnumerator() 
-			{
-				return GetEnumerator();
-			}
+            {
+                set
+                {
+                    parent = value;
+                }
+            }
+            public sequencingEnumerator GetEnumerator()
+            {
+                return new sequencingEnumerator(parent);
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
         }
 
-        public class sequencingEnumerator: IEnumerator 
+        public class sequencingEnumerator : IEnumerator
         {
-			int nIndex;
-			sequencingCollectionType parent;
-			public sequencingEnumerator(sequencingCollectionType par) 
-			{
-				parent = par;
-				nIndex = -1;
-			}
-			public void Reset() 
-			{
-				nIndex = -1;
-			}
-			public bool MoveNext() 
-			{
-				nIndex++;
-				return(nIndex < parent.sequencingCount );
-			}
-			public sequencingType  Current 
-			{
-				get 
-				{
-					return(parent.GetsequencingAt(nIndex));
-				}
-			}
-			object IEnumerator.Current 
-			{
-				get 
-				{
-					return(Current);
-				}
-			}
-    	}
-	
+            int nIndex;
+            sequencingCollectionType parent;
+            public sequencingEnumerator(sequencingCollectionType par)
+            {
+                parent = par;
+                nIndex = -1;
+            }
+            public void Reset()
+            {
+                nIndex = -1;
+            }
+            public bool MoveNext()
+            {
+                nIndex++;
+                return (nIndex < parent.sequencingCount);
+            }
+            public sequencingType Current
+            {
+                get
+                {
+                    return (parent.GetsequencingAt(nIndex));
+                }
+            }
+            object IEnumerator.Current
+            {
+                get
+                {
+                    return (Current);
+                }
+            }
+        }
+
         #endregion // sequencing collection
 
         private void SetCollectionParents()
         {
-            Mysequencings.Parent = this; 
-	}
-}
+            Mysequencings.Parent = this;
+        }
+    }
 }

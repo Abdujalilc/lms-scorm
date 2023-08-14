@@ -28,7 +28,7 @@ namespace OpenSourceSCORMLMS.Helpers
             {
                 PathToSco = PathToSco.Substring(i, PathToSco.Length - i);
             }
-          
+
             url = $"{siteUrl}/{PathToSco}/{hrefSco}";
             return url;
         }

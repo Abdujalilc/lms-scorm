@@ -607,7 +607,7 @@ namespace OpenSourceSCORMLMS.Helpers
             try
             {
                 using (var context = ConnectionHelper.getContext())
-                {                    
+                {
                     cmi_core cmiCore =
                         (from c in context.cmi_core
                          where c.student_id == UserId && c.SCORM_course_id == iSCORM_Course_ID
@@ -625,8 +625,8 @@ namespace OpenSourceSCORMLMS.Helpers
                             lesson_status = "not attempted",
                             credit = "credit",
                             lesson_mode = "normal",
-                            entry= "ab-initio",
-                            SCORM_course_id= iSCORM_Course_ID,
+                            entry = "ab-initio",
+                            SCORM_course_id = iSCORM_Course_ID,
                         };
                         context.cmi_core.Attach(cmiCore);
                         context.SaveChanges();

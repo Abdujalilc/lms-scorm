@@ -10,16 +10,13 @@
 // http://www.altova.com/xmlspy
 //
 
-
-using System;
-
 namespace imscp_rootv1p1p2
 {
-	public class imscp_rootv1p1p2Doc : Altova.Document
-	{
-		override protected void DeclareNamespaces(Altova.Node node)
-		{
-			DeclareNamespace(node, "", "http://www.imsproject.org/xsd/imscp_rootv1p1p2");
-		}
-	}
+    public class imscp_rootv1p1p2Doc : Altova.Document
+    {
+        override protected void DeclareNamespaces(Altova.Node node)
+        {
+            DeclareNamespace(node, "", "http://www.imsproject.org/xsd/imscp_rootv1p1p2");
+        }
+    }
 }

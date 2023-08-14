@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +24,7 @@ namespace OpenSourceSCORMLMS.Pages
             _logger = logger;
             databaseHelper = new Helpers.DatabaseHelper(_logger);
         }
-       
+
         public void OnGet()
         {
             if (!Models.SignedInUser.isSignedIn)

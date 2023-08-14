@@ -16,15 +16,15 @@ using Altova.Types;
 namespace imsss_v1p0
 {
 
-	public class exitConditionRuleActionType : SchemaString
-	{
-		public exitConditionRuleActionType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class exitConditionRuleActionType : SchemaString
+    {
+        public exitConditionRuleActionType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

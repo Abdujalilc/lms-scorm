@@ -5,10 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting;
 using OpenSourceSCORMLMS.Data;
 using OpenSourceSCORMLMS.Helpers;
-using System.Configuration;
 using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,7 +36,7 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 
-app.UseStaticFiles(); 
+app.UseStaticFiles();
 
 var httpContextAccessor = app.Services.GetRequiredService<IHttpContextAccessor>();
 ConfigurationHelper.Initialize(config, httpContextAccessor);

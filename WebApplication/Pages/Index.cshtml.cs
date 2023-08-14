@@ -18,8 +18,8 @@ namespace OpenSourceSCORMLMS.Pages
         {
             if (_signInManager.IsSignedIn(User))
             {
-                SignedInUser.User_id =  _userManager.GetUserId(User);
-                SignedInUser.Email =  _userManager.GetUserName(User);
+                SignedInUser.User_id = _userManager.GetUserId(User);
+                SignedInUser.Email = _userManager.GetUserName(User);
                 SignedInUser.isSignedIn = true;
             }
         }

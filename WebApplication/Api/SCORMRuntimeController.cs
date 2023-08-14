@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Models;
-using System;
 using OpenSourceSCORMLMS.Data.ModelSCORM;
 using OpenSourceSCORMLMS.Helpers;
+using System;
 
 namespace OpenSourceSCORMLMS.Api
 {

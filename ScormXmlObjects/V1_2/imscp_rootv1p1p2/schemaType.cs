@@ -16,21 +16,21 @@ using Altova.Types;
 namespace imscp_rootv1p1p2
 {
 
-	public class schemaType : SchemaString
-	{
-		public schemaType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class schemaType : SchemaString
+    {
+        public schemaType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-			if (Value.Length > GetMaxLength())
-				throw new System.Exception("Too long");
-		}
-		public int GetMaxLength()
-		{
-			return 100;
-		}
-	}
+        public void Validate()
+        {
+            if (Value.Length > GetMaxLength())
+                throw new System.Exception("Too long");
+        }
+        public int GetMaxLength()
+        {
+            return 100;
+        }
+    }
 }

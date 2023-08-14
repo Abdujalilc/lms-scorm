@@ -10,16 +10,13 @@
 // http://www.altova.com/xmlspy
 //
 
-
-using System;
-
 namespace imsmd_rootv1p2p1
 {
-	public class imsmd_rootv1p2p1Doc : Altova.Document
-	{
-		override protected void DeclareNamespaces(Altova.Node node)
-		{
-			DeclareNamespace(node, "", "http://www.imsglobal.org/xsd/imsmd_rootv1p2p1");
-		}
-	}
+    public class imsmd_rootv1p2p1Doc : Altova.Document
+    {
+        override protected void DeclareNamespaces(Altova.Node node)
+        {
+            DeclareNamespace(node, "", "http://www.imsglobal.org/xsd/imsmd_rootv1p2p1");
+        }
+    }
 }

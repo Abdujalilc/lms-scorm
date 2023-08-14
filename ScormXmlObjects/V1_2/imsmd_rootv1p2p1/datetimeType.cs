@@ -16,15 +16,15 @@ using Altova.Types;
 namespace imsmd_rootv1p2p1
 {
 
-	public class datetimeType : SchemaString
-	{
-		public datetimeType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class datetimeType : SchemaString
+    {
+        public datetimeType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

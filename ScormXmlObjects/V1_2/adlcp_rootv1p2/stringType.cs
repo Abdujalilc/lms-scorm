@@ -16,15 +16,15 @@ using Altova.Types;
 namespace adlcp_rootv1p2
 {
 
-	public class stringType : SchemaString
-	{
-		public stringType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class stringType : SchemaString
+    {
+        public stringType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

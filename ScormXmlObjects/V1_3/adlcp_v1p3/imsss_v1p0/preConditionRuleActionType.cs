@@ -16,15 +16,15 @@ using Altova.Types;
 namespace imsss_v1p0
 {
 
-	public class preConditionRuleActionType : SchemaString
-	{
-		public preConditionRuleActionType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class preConditionRuleActionType : SchemaString
+    {
+        public preConditionRuleActionType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

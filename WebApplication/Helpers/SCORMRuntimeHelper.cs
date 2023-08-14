@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using Models;
+using OpenSourceSCORMLMS.Data.ModelSCORM;
 using System;
-using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
-using OpenSourceSCORMLMS.Data.ModelSCORM;
 
 namespace OpenSourceSCORMLMS.Helpers
 {
@@ -278,7 +277,7 @@ namespace OpenSourceSCORMLMS.Helpers
             arg[2] = o.errorCode;
             logger.LogInformation("Returning from Getvalue for {0}, return value is {1}, error is {2} ", arg);
 
-           
+
         }
         // Helper function for LMSGetvalue
         // Returns value for all Interactions requests
@@ -613,7 +612,8 @@ namespace OpenSourceSCORMLMS.Helpers
                                 {
                                     DatabaseHelper.UpdateUserModuleDateCompleted(o.userId, Convert.ToInt32(o.scormCourseId), DateTime.Now);
 
-                                } else if (DataValue.ToLower() == "passed")
+                                }
+                                else if (DataValue.ToLower() == "passed")
                                 {
                                     DatabaseHelper.UpdateUserModulePassed(o.userId, Convert.ToInt32(o.scormCourseId), DateTime.Now);
                                 }
@@ -897,7 +897,7 @@ namespace OpenSourceSCORMLMS.Helpers
                 {
                     if (isCMIVocabulary("exit", DataValue))
                     {
-                        DatabaseHelper.SetValueCore(core_id, "[exit]", o.dataValue);          
+                        DatabaseHelper.SetValueCore(core_id, "[exit]", o.dataValue);
                     }
                     else
                     {
@@ -921,7 +921,7 @@ namespace OpenSourceSCORMLMS.Helpers
             logger.LogInformation("Returning from Setvalue for {0}, return value is {1}, error is {2} ", arg);
             //logger.LogInformation("Returning from Setvalue, ErrorCode  {o} ", o.errorCode);
             //logger.LogInformation("Returning from Setvalue, ErrorString  {o}  ", o.errorString);
-           // logger.LogInformation("Returning from Setvalue, returnValue is {o}  ", o.returnValue);
+            // logger.LogInformation("Returning from Setvalue, returnValue is {o}  ", o.returnValue);
         }
         private void SetValueStudentPreference(LMSInfo o)
         {
@@ -990,7 +990,7 @@ namespace OpenSourceSCORMLMS.Helpers
                     break;
             }
         }
-        private  void SetValueStudentPreference2004(LMSInfo o)
+        private void SetValueStudentPreference2004(LMSInfo o)
         {
             // set student preference:
             // 1. If there's no preference record, insert one
@@ -1377,7 +1377,7 @@ namespace OpenSourceSCORMLMS.Helpers
                         // Note 12/1/2004 this causes an error if the user resubmits the page
                         // because the sequence they are submitting will already be there.
                         // I say, screw this error
- 
+
                         // get "type" so we can validate the pattern
                         string type = DatabaseHelper.GetInteractionType(cmi_interactions_id);
                         if (isInteractionPatternValid(type, o.dataValue))
@@ -1437,7 +1437,7 @@ namespace OpenSourceSCORMLMS.Helpers
                 }
             }
         }
-       
+
         //*************************************************************************************************************************************************
         // Data Validation Helper Routines
         //*************************************************************************************************************************************************
@@ -1895,7 +1895,7 @@ namespace OpenSourceSCORMLMS.Helpers
             }
             return false;
         }
-  
+
         public bool ConvertToInt(string s, out int i)
         {
             double nn;
@@ -1910,7 +1910,7 @@ namespace OpenSourceSCORMLMS.Helpers
                 return false;
             }
         }
-     
+
 
 
 

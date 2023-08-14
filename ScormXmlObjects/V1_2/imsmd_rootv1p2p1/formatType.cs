@@ -16,15 +16,15 @@ using Altova.Types;
 namespace imsmd_rootv1p2p1
 {
 
-	public class formatType : SchemaString
-	{
-		public formatType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class formatType : SchemaString
+    {
+        public formatType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

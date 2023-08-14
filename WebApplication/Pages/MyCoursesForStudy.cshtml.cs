@@ -10,7 +10,7 @@ namespace OpenSourceSCORMLMS.Pages
 {
     public class MyCoursesForStudyModel : PageModel
     {
-        public List<User_Module> listModules{ get; set; }
+        public List<User_Module> listModules { get; set; }
         public string UserID { get; set; }
         private readonly UserManager<IdentityUser> _userManager;
         private IConfiguration _configuration;

@@ -10,27 +10,24 @@
 // http://www.altova.com/xmlspy
 //
 
-
-using Altova.Types;
-
 namespace adlcp_rootv1p2
 {
 
-	public class newSchemaType : adlcp_rootv1p2.imscp.schemaType
-	{
-		public newSchemaType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class newSchemaType : adlcp_rootv1p2.imscp.schemaType
+    {
+        public newSchemaType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		new public void  Validate()
-		{
-			if (Value.Length > GetMaxLength())
-				throw new System.Exception("Too long");
-		}
-		new public int GetMaxLength()
-		{
-			return 100;
-		}
-	}
+        new public void Validate()
+        {
+            if (Value.Length > GetMaxLength())
+                throw new System.Exception("Too long");
+        }
+        new public int GetMaxLength()
+        {
+            return 100;
+        }
+    }
 }

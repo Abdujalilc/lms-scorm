@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -29,7 +28,7 @@ namespace OpenSourceSCORMLMS.Pages
             _logger = logger;
             databaseHelper = new DatabaseHelper(_logger);
         }
-        
+
         public void OnGet()
         {
             if (!Models.SignedInUser.isSignedIn)
@@ -44,14 +43,14 @@ namespace OpenSourceSCORMLMS.Pages
                 bUserHasCourse = databaseHelper.isCourseInUserStudyArea(SCORM_Course_id, UserID);
             }
         }
-        
+
         public IActionResult OnPost([FromForm] Models.SCORMCourse package)
         {
             string UserID = _userManager.GetUserId(HttpContext.User);
             // determine if course is already in their study area
             // if so, just go to study area
             // if not, add to study area
-            if (! databaseHelper.isCourseInUserStudyArea(package.id, UserID))
+            if (!databaseHelper.isCourseInUserStudyArea(package.id, UserID))
             {
                 // add course to their study area
                 databaseHelper.AddCourseToUsersStudyArea(package.id, UserID);

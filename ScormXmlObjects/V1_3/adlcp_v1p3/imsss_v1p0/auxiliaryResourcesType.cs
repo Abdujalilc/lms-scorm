@@ -17,182 +17,182 @@ using System.Xml;
 
 namespace imsss_v1p0
 {
-	public class auxiliaryResourcesType : Altova.Node
-	{
-		#region Forward constructors
-		public auxiliaryResourcesType() : base() { SetCollectionParents(); }
-		public auxiliaryResourcesType(XmlDocument doc) : base(doc) { SetCollectionParents(); }
-		public auxiliaryResourcesType(XmlNode node) : base(node) { SetCollectionParents(); }
-		public auxiliaryResourcesType(Altova.Node node) : base(node) { SetCollectionParents(); }
-		#endregion // Forward constructors
+    public class auxiliaryResourcesType : Altova.Node
+    {
+        #region Forward constructors
+        public auxiliaryResourcesType() : base() { SetCollectionParents(); }
+        public auxiliaryResourcesType(XmlDocument doc) : base(doc) { SetCollectionParents(); }
+        public auxiliaryResourcesType(XmlNode node) : base(node) { SetCollectionParents(); }
+        public auxiliaryResourcesType(Altova.Node node) : base(node) { SetCollectionParents(); }
+        #endregion // Forward constructors
 
-		public override void AdjustPrefix()
-		{
-			int nCount;
+        public override void AdjustPrefix()
+        {
+            int nCount;
 
-			nCount = DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
-			for (int i = 0; i < nCount; i++)
-			{
-				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", i);
-				InternalAdjustPrefix(DOMNode, true);
-				new auxiliaryResourceType(DOMNode).AdjustPrefix();
-			}
-		}
+            nCount = DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
+            for (int i = 0; i < nCount; i++)
+            {
+                XmlNode DOMNode = GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", i);
+                InternalAdjustPrefix(DOMNode, true);
+                new auxiliaryResourceType(DOMNode).AdjustPrefix();
+            }
+        }
 
 
-		#region auxiliaryResource accessor methods
-		public int GetauxiliaryResourceMinCount()
-		{
-			return 0;
-		}
+        #region auxiliaryResource accessor methods
+        public int GetauxiliaryResourceMinCount()
+        {
+            return 0;
+        }
 
-		public int auxiliaryResourceMinCount
-		{
-			get
-			{
-				return 0;
-			}
-		}
+        public int auxiliaryResourceMinCount
+        {
+            get
+            {
+                return 0;
+            }
+        }
 
-		public int GetauxiliaryResourceMaxCount()
-		{
-			return Int32.MaxValue;
-		}
+        public int GetauxiliaryResourceMaxCount()
+        {
+            return Int32.MaxValue;
+        }
 
-		public int auxiliaryResourceMaxCount
-		{
-			get
-			{
-				return Int32.MaxValue;
-			}
-		}
+        public int auxiliaryResourceMaxCount
+        {
+            get
+            {
+                return Int32.MaxValue;
+            }
+        }
 
-		public int GetauxiliaryResourceCount()
-		{
-			return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
-		}
+        public int GetauxiliaryResourceCount()
+        {
+            return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
+        }
 
-		public int auxiliaryResourceCount
-		{
-			get
-			{
-				return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
-			}
-		}
+        public int auxiliaryResourceCount
+        {
+            get
+            {
+                return DomChildCount(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
+            }
+        }
 
-		public bool HasauxiliaryResource()
-		{
-			return HasDomChild(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
-		}
+        public bool HasauxiliaryResource()
+        {
+            return HasDomChild(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource");
+        }
 
-		public auxiliaryResourceType GetauxiliaryResourceAt(int index)
-		{
-			return new auxiliaryResourceType(GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index));
-		}
+        public auxiliaryResourceType GetauxiliaryResourceAt(int index)
+        {
+            return new auxiliaryResourceType(GetDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index));
+        }
 
-		public auxiliaryResourceType GetauxiliaryResource()
-		{
-			return GetauxiliaryResourceAt(0);
-		}
+        public auxiliaryResourceType GetauxiliaryResource()
+        {
+            return GetauxiliaryResourceAt(0);
+        }
 
-		public auxiliaryResourceType auxiliaryResource
-		{
-			get
-			{
-				return GetauxiliaryResourceAt(0);
-			}
-		}
+        public auxiliaryResourceType auxiliaryResource
+        {
+            get
+            {
+                return GetauxiliaryResourceAt(0);
+            }
+        }
 
-		public void RemoveauxiliaryResourceAt(int index)
-		{
-			RemoveDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index);
-		}
+        public void RemoveauxiliaryResourceAt(int index)
+        {
+            RemoveDomChildAt(NodeType.Element, "http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index);
+        }
 
-		public void RemoveauxiliaryResource()
-		{
-			while (HasauxiliaryResource())
-				RemoveauxiliaryResourceAt(0);
-		}
+        public void RemoveauxiliaryResource()
+        {
+            while (HasauxiliaryResource())
+                RemoveauxiliaryResourceAt(0);
+        }
 
-		public void AddauxiliaryResource(auxiliaryResourceType newValue)
-		{
-			AppendDomElement("http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", newValue);
-		}
+        public void AddauxiliaryResource(auxiliaryResourceType newValue)
+        {
+            AppendDomElement("http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", newValue);
+        }
 
-		public void InsertauxiliaryResourceAt(auxiliaryResourceType newValue, int index)
-		{
-			InsertDomElementAt("http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index, newValue);
-		}
+        public void InsertauxiliaryResourceAt(auxiliaryResourceType newValue, int index)
+        {
+            InsertDomElementAt("http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index, newValue);
+        }
 
-		public void ReplaceauxiliaryResourceAt(auxiliaryResourceType newValue, int index)
-		{
-			ReplaceDomElementAt("http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index, newValue);
-		}
-		#endregion // auxiliaryResource accessor methods
+        public void ReplaceauxiliaryResourceAt(auxiliaryResourceType newValue, int index)
+        {
+            ReplaceDomElementAt("http://www.imsglobal.org/xsd/imsss", "auxiliaryResource", index, newValue);
+        }
+        #endregion // auxiliaryResource accessor methods
 
-		#region auxiliaryResource collection
-        public auxiliaryResourceCollection	MyauxiliaryResources = new auxiliaryResourceCollection( );
+        #region auxiliaryResource collection
+        public auxiliaryResourceCollection MyauxiliaryResources = new auxiliaryResourceCollection();
 
-        public class auxiliaryResourceCollection: IEnumerable
+        public class auxiliaryResourceCollection : IEnumerable
         {
             auxiliaryResourcesType parent;
             public auxiliaryResourcesType Parent
-			{
-				set
-				{
-					parent = value;
-				}
-			}
-			public auxiliaryResourceEnumerator GetEnumerator() 
-			{
-				return new auxiliaryResourceEnumerator(parent);
-			}
-		
-			IEnumerator IEnumerable.GetEnumerator() 
-			{
-				return GetEnumerator();
-			}
+            {
+                set
+                {
+                    parent = value;
+                }
+            }
+            public auxiliaryResourceEnumerator GetEnumerator()
+            {
+                return new auxiliaryResourceEnumerator(parent);
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
         }
 
-        public class auxiliaryResourceEnumerator: IEnumerator 
+        public class auxiliaryResourceEnumerator : IEnumerator
         {
-			int nIndex;
-			auxiliaryResourcesType parent;
-			public auxiliaryResourceEnumerator(auxiliaryResourcesType par) 
-			{
-				parent = par;
-				nIndex = -1;
-			}
-			public void Reset() 
-			{
-				nIndex = -1;
-			}
-			public bool MoveNext() 
-			{
-				nIndex++;
-				return(nIndex < parent.auxiliaryResourceCount );
-			}
-			public auxiliaryResourceType  Current 
-			{
-				get 
-				{
-					return(parent.GetauxiliaryResourceAt(nIndex));
-				}
-			}
-			object IEnumerator.Current 
-			{
-				get 
-				{
-					return(Current);
-				}
-			}
-    	}
-	
+            int nIndex;
+            auxiliaryResourcesType parent;
+            public auxiliaryResourceEnumerator(auxiliaryResourcesType par)
+            {
+                parent = par;
+                nIndex = -1;
+            }
+            public void Reset()
+            {
+                nIndex = -1;
+            }
+            public bool MoveNext()
+            {
+                nIndex++;
+                return (nIndex < parent.auxiliaryResourceCount);
+            }
+            public auxiliaryResourceType Current
+            {
+                get
+                {
+                    return (parent.GetauxiliaryResourceAt(nIndex));
+                }
+            }
+            object IEnumerator.Current
+            {
+                get
+                {
+                    return (Current);
+                }
+            }
+        }
+
         #endregion // auxiliaryResource collection
 
         private void SetCollectionParents()
         {
-            MyauxiliaryResources.Parent = this; 
-	}
-}
+            MyauxiliaryResources.Parent = this;
+        }
+    }
 }

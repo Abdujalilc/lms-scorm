@@ -16,15 +16,15 @@ using Altova.Types;
 namespace imsmd_rootv1p2p1
 {
 
-	public class catalogType : SchemaString
-	{
-		public catalogType(string newValue) : base(newValue)
-		{
-			Validate();
-		}
+    public class catalogType : SchemaString
+    {
+        public catalogType(string newValue) : base(newValue)
+        {
+            Validate();
+        }
 
-		public void Validate()
-		{
-		}
-	}
+        public void Validate()
+        {
+        }
+    }
 }

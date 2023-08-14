@@ -13,11 +13,11 @@
 
 namespace imscp_v1p1
 {
-	public class imscp_v1p1Doc : Altova.Document
-	{
-		override protected void DeclareNamespaces(Altova.Node node)
-		{
-			DeclareNamespace(node, "", "http://www.imsglobal.org/xsd/imscp_v1p1");
-		}
-	}
+    public class imscp_v1p1Doc : Altova.Document
+    {
+        override protected void DeclareNamespaces(Altova.Node node)
+        {
+            DeclareNamespace(node, "", "http://www.imsglobal.org/xsd/imscp_v1p1");
+        }
+    }
 }
