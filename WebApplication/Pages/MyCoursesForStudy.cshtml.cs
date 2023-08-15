@@ -27,9 +27,6 @@ namespace OpenSourceSCORMLMS.Pages
         }
         public void OnGet()
         {
-            // get user_id
-            // retrieve their courses available for study
-            // build the table
             if (!Models.SignedInUser.isSignedIn)
             {
                 Response.Redirect("/Identity/Account/Login?returnUrl=" + Request.Path);

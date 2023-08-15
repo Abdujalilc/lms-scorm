@@ -20,7 +20,7 @@ IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .AddEnvironmentVariables()
     .Build();
-//builder.Services.AddSingleton<IConfiguration>(Configuration);
+
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
@@ -31,6 +31,7 @@ builder.Services.AddMvc().AddJsonOptions(o =>
     o.JsonSerializerOptions.PropertyNamingPolicy = null;
     o.JsonSerializerOptions.DictionaryKeyPolicy = null;
 }); //prevent JsonResult from camelCasing on its own
+
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 var app = builder.Build();

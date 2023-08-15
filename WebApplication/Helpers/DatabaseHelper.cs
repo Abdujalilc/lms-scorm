@@ -579,20 +579,7 @@ namespace OpenSourceSCORMLMS.Helpers
                              DateUploaded = sc.DateUploaded,
                              user_module_id = u == null ? 0 : u.id
                          }).ToList();
-
-                    /*listCourses = context.SCORM_Course_FromSP
-                      .FromSql($"dbo.Sel_CoursesWithUserIndicator {UserId}")
-                      .ToList();*/
                 }
-                /*SELECT sc.id,
-         title_from_manifest AS title,
-         pathtoIndex,
-         DateUploaded,
-         COALESCE(um.id,0) as user_module_id FROM SCORM_Course sc
-  LEFT JOIN User_Module um
-    ON sc.id = um.SCORM_Courseid
-    AND um.UserID = @userID
-  ORDER BY title_from_manifest*/
             }
             catch (Exception ex)
             {

@@ -42,9 +42,7 @@
             success: function (file, response) {
                 $(".dz-success-mark svg").css("background", "green");
                 $(".dz-error-mark").css("display", "none");
-                // console.log(file);
-
-                //alert(response.Message + '  ' + response.Url);
+                
                 window.location.href = response.Url;
             },
             error: function (file, response) {

@@ -47,12 +47,9 @@ namespace OpenSourceSCORMLMS.Pages
         public IActionResult OnPost([FromForm] Models.SCORMCourse package)
         {
             string UserID = _userManager.GetUserId(HttpContext.User);
-            // determine if course is already in their study area
-            // if so, just go to study area
-            // if not, add to study area
+            
             if (!databaseHelper.isCourseInUserStudyArea(package.id, UserID))
             {
-                // add course to their study area
                 databaseHelper.AddCourseToUsersStudyArea(package.id, UserID);
             }
             return RedirectToPage("MyCoursesForStudy");

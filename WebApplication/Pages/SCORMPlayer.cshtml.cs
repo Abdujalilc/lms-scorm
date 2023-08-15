@@ -14,7 +14,7 @@ namespace OpenSourceSCORMLMS.Pages
     {
         public int SCORM_Course_id { get; set; }
         public string UserID { get; set; }
-        public string sLaunchParameters { get; set; } // this is javascript to tell the SCORM scripts what course to launch etc.
+        public string sLaunchParameters { get; set; } 
         public string sIframeSrc { get; set; }
         private readonly UserManager<IdentityUser> _userManager;
         private IConfiguration _configuration;
