@@ -16,12 +16,10 @@ namespace OpenSourceSCORMLMS.Api
         DatabaseHelper DatabaseHelper { get; set; }
         public SCORMRuntimeController(ILogger<SCORMRuntimeController> logger)
         {
-
             _logger = logger;
             SCORM = new SCORMRuntimeHelper(_logger);
             DatabaseHelper = new DatabaseHelper(_logger);
         }
-
         // Post api/LMSInitialize
         [HttpPost("/api/LMSInitialize")]
         public JsonResult LMSInitialize([FromBody] LMSInfo o)
@@ -36,7 +34,6 @@ namespace OpenSourceSCORMLMS.Api
                 o1.returnValue = "false";
                 return Json(o1);
             }
-
             // set up data record if needed (this record holds launch, suspend info
             // there might be one data record for many core_id records
             int cmi_data_id = DatabaseHelper.GetCmiDataID(o.userId.ToString(), o.scoIdentifier, o.scormCourseId);
@@ -55,7 +52,6 @@ namespace OpenSourceSCORMLMS.Api
             o.returnValue = "true";
             o.errorString = "";
             return Json(o);
-
         }
         // POST api/LMSFinish
         [HttpPost("/api/LMSFinish")]
@@ -102,22 +98,14 @@ namespace OpenSourceSCORMLMS.Api
                     string entry = "";
                     string status = "";
                     if (exit != null && exit.ToLower() == "suspend")
-                    {
                         entry = "resume";
-                    }
                     if ((lesson_status.ToLower() == "not attempted") || (lesson_status == string.Empty))
-                    {
                         status = "completed";
-                    }
                     else
-                    {
                         status = lesson_status;
-                    }
                     string Total_time = SCORM.AddCMITime(session_time, total_time);
                     if (Total_time == "false")
-                    {
                         Total_time = total_time;
-                    }
                     DatabaseHelper.UpdateCore(core_id, entry, status, Total_time);
                 }
                 o.errorCode = "0";
@@ -141,7 +129,6 @@ namespace OpenSourceSCORMLMS.Api
             SCORM.Getvalue(o);  //The GetValue static class handles all GetValues
             return Json(o);
         }
-
         // POST api/LMSSetValue
         [HttpPost("/api/LMSSetValue")]
         public JsonResult LMSSetValue([FromBody] LMSInfo o)
@@ -158,22 +145,19 @@ namespace OpenSourceSCORMLMS.Api
             return Json(o);
 
         }
-
         // GET api/LMSCommit
         [HttpPost("/api/LMSCommit")]
         public JsonResult LMSCommit([FromBody] LMSInfo o)
         {
             // this is a NOOP since we commit every time.
             if (o is null)
-            {
                 o = new LMSInfo();
-            }
+
             o.errorCode = "0";
             o.returnValue = "true";
             o.errorString = "";
             return Json(o);
         }
-
     }
 }
 
