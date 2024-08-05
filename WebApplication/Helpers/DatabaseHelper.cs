@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Models;
+using OpenSourceSCORMLMS.Data;
 using OpenSourceSCORMLMS.Data.ModelSCORM;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace OpenSourceSCORMLMS.Helpers
             bool b = false;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var row = context.User_Module.Where(ix => ix.UserID == UserID && ix.SCORM_Course.id == SCORM_Course_id).OrderByDescending(iy => iy.dtDateAdded).FirstOrDefault();
                     if (row != null)
@@ -44,7 +45,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     User_Module user_module = new User_Module();
                     user_module.dtDateAdded = DateTime.Today;
@@ -65,7 +66,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var user_module = context.User_Module.Where(ix => ix.SCORM_Course.id == SCORM_Course_id && ix.UserID == UserID).OrderByDescending(iy => iy.dtDateAdded).FirstOrDefault();
                     user_module.dtDateLastOpened = DateTime.Now;
@@ -81,7 +82,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var user_module = context.User_Module.Where(ix => ix.SCORM_Course.id == SCORM_Course_id && ix.UserID == UserID).OrderByDescending(iy => iy.dtDateAdded).FirstOrDefault();
                     user_module.dtDateCompleted = dtDateCompleted;
@@ -97,7 +98,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var user_module = context.User_Module.Where(ix => ix.SCORM_Course.id == SCORM_Course_id && ix.UserID == UserID).OrderByDescending(iy => iy.dtDateAdded).FirstOrDefault();
                     user_module.dScore = dScore;
@@ -113,7 +114,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var user_module = context.User_Module.Where(ix => ix.SCORM_Course.id == SCORM_Course_id && ix.UserID == UserID).OrderByDescending(iy => iy.dtDateAdded).FirstOrDefault();
                     user_module.dtDatePassed = dtPassed;
@@ -130,7 +131,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var core = context.cmi_core.Where(ix => ix.core_id == core_id).FirstOrDefault();
                     core.entry = entry;
@@ -148,7 +149,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var session = context.session.Where(ix => ix.id == id).FirstOrDefault();
                     session.enddatetime = enddatetime;
@@ -164,7 +165,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var user_module = context.User_Module.Where(ix => ix.SCORM_Course.id == SCORM_Course_id && ix.UserID == UserID).OrderByDescending(iy => iy.dtDateAdded).FirstOrDefault();
                     user_module.dtDateCompleted = dtCompleted;
@@ -178,7 +179,7 @@ namespace OpenSourceSCORMLMS.Helpers
         }
         public List<User_Module> SelectUserModule(string UserID)
         {
-            using (var context = ConnectionHelper.getContext())
+            using (ApplicationDbContext context = ConnectionHelper.getContext())
             {
                 var rows = context.User_Module.Where(ix => ix.UserID == UserID)
                     .OrderByDescending(iy => iy.dtDateLastOpened).ThenByDescending(iz => iz.dtDateAdded)
@@ -191,7 +192,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     cmi_data cd = new cmi_data();
                     cd.user_id = user_id;
@@ -214,7 +215,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     SCORM_Course SCORM_course = new SCORM_Course();
                     SCORM_course.DateUploaded = dtUploaded;
@@ -238,7 +239,7 @@ namespace OpenSourceSCORMLMS.Helpers
             string s = $"UPDATE cmi_core set {sDataItem} = @sDataValue where core_id = @core_id";
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
 
                     DbCommand cmd = context.Database.GetDbConnection().CreateCommand();
@@ -262,7 +263,7 @@ namespace OpenSourceSCORMLMS.Helpers
             string s = $"UPDATE cmi_student_preference set {sDataItem} = @sDataValue where id = @student_preference_id";
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     DbCommand cmd = context.Database.GetDbConnection().CreateCommand();
                     cmd.CommandText = s;
@@ -285,7 +286,7 @@ namespace OpenSourceSCORMLMS.Helpers
             string s = $"UPDATE cmi_data set suspend_data = @suspend_data where id = @data_id";
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     DbCommand cmd = context.Database.GetDbConnection().CreateCommand();
                     cmd.CommandText = s;
@@ -308,7 +309,7 @@ namespace OpenSourceSCORMLMS.Helpers
             string s = $"UPDATE cmi_objectives set {sDataItem} = @sDataValue where id = @id";
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     DbCommand cmd = context.Database.GetDbConnection().CreateCommand();
                     cmd.CommandText = s;
@@ -350,7 +351,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int.TryParse(sco_courses_id, out iSCO_Course_id);
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var cmi_data = context.cmi_data.Where(ix => ix.SCORM_courses_id == iSCO_Course_id && ix.user_id == user_id).OrderByDescending(iy => iy.id).FirstOrDefault();
                     if (cmi_data != null)
@@ -370,7 +371,7 @@ namespace OpenSourceSCORMLMS.Helpers
             cmi_core core = new cmi_core();
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     core = context.cmi_core.Find(core_id);
                 }
@@ -386,7 +387,7 @@ namespace OpenSourceSCORMLMS.Helpers
             cmi_data data = new cmi_data();
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     data = context.cmi_data.Find(data_id);
                 }
@@ -403,7 +404,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iCount = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     iCount = context.cmi_interactions.Select(ix => ix.core_id == core_id).Count();
                 }
@@ -419,7 +420,7 @@ namespace OpenSourceSCORMLMS.Helpers
             cmi_interactions interactions = new cmi_interactions();
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     interactions = context.cmi_interactions.Where(ix => ix.id == interactions_id).FirstOrDefault();
                 }
@@ -436,7 +437,7 @@ namespace OpenSourceSCORMLMS.Helpers
             cmi_interactions interactions = new cmi_interactions();
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     interactions = context.cmi_interactions.Where(ix => ix.id == cmi_interactions_id).FirstOrDefault();
                     if (interactions != null && !string.IsNullOrEmpty(interactions.type))
@@ -456,7 +457,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iCount = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     iCount = context.cmi_objectives.Select(ix => ix.core_id == core_id).Count();
                 }
@@ -472,7 +473,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iCount = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     iCount = context.cmi_comment_from_learner.Select(ix => ix.core_id == core_id).Count();
                 }
@@ -489,7 +490,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iCount = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     iCount = context.cmi_interactions_correct_responses.Select(ix => ix.interactions_id == interactions_id).Count();
                 }
@@ -506,7 +507,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iCount = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     iCount = context.cmi_interactions_objectives.Select(ix => ix.interactions_id == interactions_id).Count();
                 }
@@ -523,7 +524,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iCount = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     iCount = context.cmi_comment_from_lms.Select(ix => ix.SCORM_Course_id == SCORM_Course_id && ix.SCO_identifier == SCO_identifier).Count();
                 }
@@ -539,7 +540,7 @@ namespace OpenSourceSCORMLMS.Helpers
             List<SCORMCourse> listCourses = new List<SCORMCourse>();
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var list = context.SCORM_Course.Select(i => new { i.id, i.pathToIndex, i.pathToFolder, i.title_from_manifest, i.DateUploaded }).OrderBy(ix => ix.title_from_manifest).ToList();
                     foreach (var j in list)
@@ -564,7 +565,7 @@ namespace OpenSourceSCORMLMS.Helpers
             List<SCORM_Course_fromSP> listCourses = new List<SCORM_Course_fromSP>();
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     listCourses =
                         (from sc in context.SCORM_Course
@@ -592,7 +593,7 @@ namespace OpenSourceSCORMLMS.Helpers
             SCORMCourse scormCourse = new SCORMCourse();
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var j = context.SCORM_Course.Select(i => new { i.id, i.pathToIndex, i.pathToFolder, i.title_from_manifest, i.DateUploaded }).Where(ix => ix.id == SCORM_Course_id).FirstOrDefault();
                     if (j != null)
@@ -616,7 +617,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iCoreID = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     cmi_core cmiCore =
                         (from c in context.cmi_core
@@ -655,7 +656,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int iSessionID = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     session session = new session()
                     {
@@ -683,7 +684,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int id = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
 
                     var cmi_interactions = context.cmi_interactions.Where(ix => ix.core_id == cmi_core_id && ix.n == n).FirstOrDefault();
@@ -710,7 +711,7 @@ namespace OpenSourceSCORMLMS.Helpers
             {
                 try
                 {
-                    using (var context = ConnectionHelper.getContext())
+                    using (ApplicationDbContext context = ConnectionHelper.getContext())
                     {
                         // doesn't exist, have to insert it
                         // first, get highest "n"
@@ -1132,7 +1133,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int id = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var cmi_comment_from_learner = context.cmi_comment_from_learner.Where(ix => ix.core_id == core_id).FirstOrDefault();
                     if (cmi_comment_from_learner != null)
@@ -1188,7 +1189,7 @@ namespace OpenSourceSCORMLMS.Helpers
             string comment = "";
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     cmi_data cd = context.cmi_data.Where(ix => ix.id == data_id).FirstOrDefault();
                     if (cd != null && !string.IsNullOrEmpty(cd.cmi_comments))
@@ -1207,7 +1208,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     cmi_data cd = context.cmi_data.Where(ix => ix.id == data_id).FirstOrDefault();
                     if (cd != null)
@@ -1228,7 +1229,7 @@ namespace OpenSourceSCORMLMS.Helpers
             string s = $"UPDATE dbo.cmi_comment_from_learner set {sDataItem} = @comment where id = @comment_id";
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     DbCommand cmd = context.Database.GetDbConnection().CreateCommand();
                     cmd.CommandText = s;
@@ -1249,7 +1250,7 @@ namespace OpenSourceSCORMLMS.Helpers
             string s = $"UPDATE dbo.cmi_interactions set {sDataItem} = @sDataValue where id = @interactions_id";
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     DbCommand cmd = context.Database.GetDbConnection().CreateCommand();
                     cmd.CommandText = s;
@@ -1271,7 +1272,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int id = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var iy = context.cmi_student_preferences.Where(ix => ix.user_id == user_id).FirstOrDefault();
                     if (iy != null)
@@ -1309,7 +1310,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int id = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var iy = context.cmi_comment_from_lms.Where(ix => ix.SCORM_Course_id == SCORM_Course_id && ix.SCO_identifier == SCO_identifier && ix.n == n).FirstOrDefault();
                     if (iy != null)
@@ -1368,7 +1369,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int id = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var iy = context.cmi_objectives.Where(ix => ix.core_id == core_id).FirstOrDefault();
                     if (iy != null)
@@ -1436,7 +1437,7 @@ namespace OpenSourceSCORMLMS.Helpers
             int id = 0;
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     var iy = context.cmi_interactions_correct_responses.Where(ix => ix.interactions_id == interactions_id && ix.n == n).FirstOrDefault();
                     if (iy != null)
@@ -1490,7 +1491,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     cmi_interactions_correct_responses cicr = context.cmi_interactions_correct_responses.Where(ix => ix.id == id).FirstOrDefault();
                     cicr.pattern = sValue;
@@ -1506,7 +1507,7 @@ namespace OpenSourceSCORMLMS.Helpers
         {
             try
             {
-                using (var context = ConnectionHelper.getContext())
+                using (ApplicationDbContext context = ConnectionHelper.getContext())
                 {
                     cmi_interactions_objectives cio = new cmi_interactions_objectives();
                     cio.interactions_id = interactions_id;
