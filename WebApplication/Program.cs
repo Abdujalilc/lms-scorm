@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +33,13 @@ builder.Services.AddMvc().AddJsonOptions(o =>
     o.JsonSerializerOptions.PropertyNamingPolicy = null;
     o.JsonSerializerOptions.DictionaryKeyPolicy = null;
 }); //prevent JsonResult from camelCasing on its own
+
+// Configure Kestrel
+builder.Services.Configure<KestrelServerOptions>(o => { o.Limits.MaxRequestBodySize = long.MaxValue; });
+// Configure IIS
+builder.Services.Configure<IISServerOptions>(o => { o.MaxRequestBodySize = long.MaxValue; });
+// Configure form options
+builder.Services.Configure<FormOptions>(o => { o.MultipartBodyLengthLimit = long.MaxValue;});
 
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
