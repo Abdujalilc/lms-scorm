@@ -5,6 +5,7 @@ If not, from the package manager console, run update-database.
 
 DisplayError('Show Error')
 
+//call this method from console to open debug
 ShowDebugWindow()
 
 node=document.getElementById("MyDiv")
