@@ -1,0 +1,2 @@
+C:\inetpub\wwwroot\scorm\SCORMCourses\
+create SCORMCourses folder
