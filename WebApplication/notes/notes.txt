@@ -16,5 +16,5 @@ while (node.hasChildNodes()) {
 
 blnDebug=false
 
-Add-Migration InitCommit -force
+Add-Migration InitCommit
 Update-Database -Verbose

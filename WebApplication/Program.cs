@@ -18,10 +18,7 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
     options.CheckConsentNeeded = context => true;
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
-IConfiguration config = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .AddEnvironmentVariables()
-    .Build();
+IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json").AddEnvironmentVariables().Build();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

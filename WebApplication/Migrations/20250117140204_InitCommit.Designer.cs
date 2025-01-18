@@ -12,7 +12,7 @@ using OpenSourceSCORMLMS.Data;
 namespace LmsApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230814151006_InitCommit")]
+    [Migration("20250117140204_InitCommit")]
     partial class InitCommit
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace LmsApplication.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.10")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
