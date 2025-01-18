@@ -1,0 +1,5 @@
+passed			388
+not attempted	612
+failed			1196
+incomplete		1252
+completed		230

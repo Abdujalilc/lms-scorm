@@ -1,21 +1,24 @@
-LRS - Learning Record Stores 
+LRS - Learning Record Store
 LMS - Learning Management System
 ADL - Advanced Distributed Learning
-AICC - Aviation Industry CBT Committee
-HACP HTTP AICC - Communication Protocol
-LTSC - Learning Technology Standards Committee 
-LRS - Learning Record Store 
-PIF - Package Interchange File 
-RTWS - Run-time web services 
-CP - Content Package 
-RTE - Run-Time Environment 
-CAM - Content Aggregation Model 
-IMS - Information management system 
-IMSMD - Information management system metadata
-ADL - Advanced Distributed Learning 
-ADLCP - Advanced Distributed Learning Content Package 
-IMSCP - Information management system Content Package 
-SCORM - Sharable Courseware Object Reference Model 
-CMI - Computer Managed Instruction 
-ISD - instructional systems designer 
-LOM - learning object metadata 
+AICC - Aviation Industry Computer-Based Training Committee
+HACP - HTTP AICC Communication Protocol
+LTSC - Learning Technology Standards Committee
+PIF - Package Interchange File
+RTWS - Run-Time Web Services
+CP - Content Package
+RTE - Run-Time Environment
+CAM - Content Aggregation Model
+IMS - Instructional Management System
+IMSMD - Instructional Management System Metadata
+ADLCP - Advanced Distributed Learning Content Package
+IMSCP - Instructional Management System Content Package
+SCORM - Sharable Content Object Reference Model
+CMI - Computer Managed Instruction
+ISD - Instructional Systems Design (or Designer)
+LOM - Learning Object Metadata
+xAPI - Experience API (also known as Tin Can API)
+TIN CAN - Another name for xAPI, focusing on learning activity tracking
+SPM - SCORM Package Manifest
+SSP - SCORM Sequencing and Navigation
+LA - Learning Analytics

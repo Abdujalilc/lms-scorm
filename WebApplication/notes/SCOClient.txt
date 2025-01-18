@@ -1,0 +1,12 @@
+var SCOClient = SCOClient || {};
+SCOClient.sessionid = '1448';
+SCOClient.userid = '7';
+SCOClient.coreid = '10';
+SCOClient.moduleid = '34';
+SCOClient.sco_identifier = 'default'; 
+SCOClient.scorm_course_id = '34';
+SCOClient.scoAddress = '/Uploads/LMSSCORM/Courses/530/28/Collaborative Learning(1)/index_lms.html';
+SCOClient.scoFrameClientID = 'SCO1';
+SCOClient.divDebugID = 'divDebug';
+SCOClient.bDebug = false;
+SCOClient.DateCreated = '9/20/2023 12:00:00 AM'; 
