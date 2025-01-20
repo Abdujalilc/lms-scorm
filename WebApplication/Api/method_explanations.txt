@@ -1,0 +1,21 @@
+LMSInitialize:
+Initializes a new SCORM session.
+Validates input (scormCourseId, coreId).
+Checks or creates a cmi_data record for launch, suspend, and other info.
+
+LMSFinish:
+Ends the SCORM session.
+Updates session timing and SCORM cmi_core records.
+Manages session completion, suspend, and resume states.
+
+LMSGetValue:
+Retrieves SCORM data values.
+Delegates the processing to the static SCORM.Getvalue method.
+
+LMSSetValue:
+Updates SCORM data values.
+Delegates the processing to the static SCORM.Setvalue method.
+
+LMSCommit:
+A no-operation (NOOP) method as changes are committed immediately.
+Returns a success response.
